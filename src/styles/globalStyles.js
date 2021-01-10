@@ -6,6 +6,7 @@ const { colors, fontSizes } = theme;
 
 const GlobalStyle = createGlobalStyle`
     * {
+  box-sizing: border-box;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: ${fontSizes.md};
 

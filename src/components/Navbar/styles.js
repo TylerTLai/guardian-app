@@ -11,11 +11,10 @@ export const Nav = styled.nav`
   grid-template-columns: 1fr;
   grid-template-rows: 1fr, 1fr;
   align-items: center;
-  width: 100%;
   height: 125px;
   grid-template-areas:
-    'NavLogo ...'
-    'NavMenu NavSearch';
+    'NavLogo'
+    'FlexContainer';
 `;
 
 export const NavLogo = styled(Link)`
@@ -23,16 +22,34 @@ export const NavLogo = styled(Link)`
   cursor: pointer;
 `;
 
+export const FlexContainer = styled.div`
+  grid-area: FlexContainer;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+`;
+
 export const NavMenu = styled.div`
-  grid-area: NavMenu;
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid red; */
 `;
 
 export const NavSearch = styled.div`
-  grid-area: NavSearch;
+  display: flex;
+  justify-content: center;
+  border-bottom: 3px solid white;
+  width: 100px;
+  cursor: pointer;
 `;
 
 export const NavLink = styled(Link)`
   text-decoration: none;
   color: ${colors.white};
   cursor: pointer;
+  border-bottom: 3px solid;
+  border-color: ${({ color }) => color || `${colors.red}`};
+  padding: 1rem 3rem 0.4rem 3rem;
+  width: 200px;
+  text-align: center;
 `;

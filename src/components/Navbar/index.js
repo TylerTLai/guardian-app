@@ -1,8 +1,19 @@
 import React from 'react';
-import { Nav, NavLink, NavLogo, NavMenu, NavSearch } from './styles';
+import {
+  FlexContainer,
+  Nav,
+  NavLink,
+  NavLogo,
+  NavMenu,
+  NavSearch,
+} from './styles';
 
 import Search from '../Search';
 import logo from '../../assets/images/the-peaks-logo.png';
+
+import theme from '../../styles/theme';
+
+const { colors } = theme;
 
 function Navbar() {
   return (
@@ -10,15 +21,25 @@ function Navbar() {
       <NavLogo to="/">
         <img src={logo} alt="The Peaks logo" />
       </NavLogo>
-      <NavMenu>
-        <NavLink to="/">NEWS TODAY</NavLink>
-        <NavLink to="/sports">SPORTS</NavLink>
-        <NavLink to="/culture">CULTURE</NavLink>
-        <NavLink to="/lifestyle">LIFESTYLE</NavLink>
-      </NavMenu>
-      <NavSearch>
-        <Search />
-      </NavSearch>
+      <FlexContainer>
+        <NavMenu>
+          <NavLink to="/" color={colors.green}>
+            NEWS TODAY
+          </NavLink>
+          <NavLink to="/sports" color={colors.red}>
+            SPORTS
+          </NavLink>
+          <NavLink to="/culture" color={colors.yellow}>
+            CULTURE
+          </NavLink>
+          <NavLink to="/lifestyle" color={colors.blue}>
+            LIFESTYLE
+          </NavLink>
+        </NavMenu>
+        <NavSearch>
+          <Search />
+        </NavSearch>
+      </FlexContainer>
     </Nav>
   );
 }

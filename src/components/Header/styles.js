@@ -5,6 +5,6 @@ import theme from '../../styles/theme';
 const { colors } = theme;
 
 export const Container = styled.div`
-  padding: 0 10rem;
+  padding: .5rem 10rem 0rem 10rem;
   background-color: ${colors.royalBlue};
 `;

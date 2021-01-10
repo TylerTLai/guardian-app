@@ -7,7 +7,7 @@ const { colors } = theme;
 function Search() {
   return (
     <div>
-      <AiOutlineSearch size={25} color={`${colors.white}`} />
+      <AiOutlineSearch size={24} color={`${colors.white}`} />
     </div>
   );
 }
