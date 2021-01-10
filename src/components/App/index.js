@@ -1,8 +1,9 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Culture from '../../pages/Culture';
 import GlobalStyle from '../../styles/globalStyles';
+
 import Home from '../../pages/Home';
+import Culture from '../../pages/Culture';
 import Lifestyle from '../../pages/Lifestyle';
 import Sports from '../../pages/Sports';
 
