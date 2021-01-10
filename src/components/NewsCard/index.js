@@ -1,7 +1,13 @@
 import React from 'react';
+import { Container, CoverImage, NewsTitle } from './styles';
 
 function NewsCard() {
-  return <div>News Card</div>;
+  return (
+    <Container>
+      <CoverImage />
+      <NewsTitle>Title</NewsTitle>
+    </Container>
+  );
 }
 
 export default NewsCard;

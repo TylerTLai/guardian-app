@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
 
   & h1, h2, h3, h4 {
     color: ${colors.black};
+    font-family: 'Georgia, serif'
   }
     }
 

@@ -1,7 +1,21 @@
 import React from 'react';
+import NewsCard from '../NewsCard';
+import { FlexContainer, Heading } from './styles';
 
 function NewsSection() {
-  return <div>News Section</div>;
+  return (
+    <>
+      <Heading>Sports</Heading>
+      <FlexContainer>
+        <NewsCard />
+        <NewsCard />
+        <NewsCard />
+        <NewsCard />
+        <NewsCard />
+        <NewsCard />
+      </FlexContainer>
+    </>
+  );
 }
 
 export default NewsSection;

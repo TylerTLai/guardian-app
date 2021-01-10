@@ -1,6 +1,6 @@
 const theme = {
   colors: {
-    royalBlue: '#10357b',
+    royalBlue: '#09357B',
     green: '#388E3C',
     red: '#F50057',
     yellow: '#FFCA28',
@@ -14,7 +14,7 @@ const theme = {
     sm: '14px',
     md: '16px',
     lg: '24px',
-    xl: '48px',
+    xl: '50px',
   },
 };
 

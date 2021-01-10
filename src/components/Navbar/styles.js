@@ -32,7 +32,6 @@ export const FlexContainer = styled.div`
 export const NavMenu = styled.div`
   display: flex;
   justify-content: space-between;
-  /* border: 1px solid red; */
 `;
 
 export const NavSearch = styled.div`
