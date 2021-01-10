@@ -1,19 +1,29 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink as Link } from 'react-router-dom';
 
-export const header = styled.header``;
-
-export const nav = styled.nav`
+export const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  align-items: center;
   background-color: #10357b;
   color: #fff;
-  height: 100px;
+  width: 100%;
+  height: 130px;
 `;
 
-export const navLink = styled(Link)`
+export const NavLogo = styled(Link)`
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+`;
+
+export const NavMenu = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const NavLink = styled(Link)`
   text-decoration: none;
   color: #fff;
   cursor: pointer;

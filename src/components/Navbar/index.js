@@ -1,16 +1,21 @@
 import React from 'react';
-import * as styled from './styles';
+import { Nav, NavLink, NavLogo, NavMenu } from './styles';
 
 function Navbar() {
   return (
-    <styled.header>
-      <styled.nav>
-        <styled.navLink to="/">NEWS TODAY</styled.navLink>
-        <styled.navLink to="/sports">SPORTS</styled.navLink>
-        <styled.navLink to="/culture">CULTURE</styled.navLink>
-        <styled.navLink to="/lifestyle">LIFESTYLE</styled.navLink>
-      </styled.nav>
-    </styled.header>
+    <>
+      <Nav>
+        <NavLogo to="/">
+          <h1>LOGO</h1>
+        </NavLogo>
+        <NavMenu>
+          <NavLink to="/">NEWS TODAY</NavLink>
+          <NavLink to="/sports">SPORTS</NavLink>
+          <NavLink to="/culture">CULTURE</NavLink>
+          <NavLink to="/lifestyle">LIFESTYLE</NavLink>
+        </NavMenu>
+      </Nav>
+    </>
   );
 }
 

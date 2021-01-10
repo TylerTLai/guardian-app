@@ -1,12 +1,10 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Culture from '../pages/Culture';
-import Home from '../pages/Home';
-import Lifestyle from '../pages/Lifestyle';
+import Culture from '../../pages/Culture';
+import Home from '../../pages/Home';
+import Lifestyle from '../../pages/Lifestyle';
 import Navbar from '../Navbar';
-import Sports from '../pages/Sports';
-
-import './App.css';
+import Sports from '../../pages/Sports';
 
 function App() {
   return (
