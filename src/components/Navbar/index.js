@@ -1,6 +1,7 @@
 import React from 'react';
 import { Nav, NavLink, NavLogo, NavMenu } from './styles';
 
+import Search from '../Search';
 import logo from '../../assets/images/the-peaks-logo.png';
 
 function Navbar() {
@@ -16,6 +17,7 @@ function Navbar() {
           <NavLink to="/culture">CULTURE</NavLink>
           <NavLink to="/lifestyle">LIFESTYLE</NavLink>
         </NavMenu>
+        <Search />
       </Nav>
     </>
   );

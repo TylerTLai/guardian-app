@@ -5,10 +5,13 @@ import Home from '../../pages/Home';
 import Lifestyle from '../../pages/Lifestyle';
 import Navbar from '../Navbar';
 import Sports from '../../pages/Sports';
+import GlobalStyle from '../../globalStyles';
 
 function App() {
   return (
     <Router>
+      <GlobalStyle />
+
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
