@@ -1,12 +1,14 @@
 import React from 'react';
 import { Nav, NavLink, NavLogo, NavMenu } from './styles';
 
+import logo from '../../assets/images/the-peaks-logo.png';
+
 function Navbar() {
   return (
     <>
       <Nav>
         <NavLogo to="/">
-          <h1>LOGO</h1>
+          <img src={logo} alt="The Peaks logo" />
         </NavLogo>
         <NavMenu>
           <NavLink to="/">NEWS TODAY</NavLink>
