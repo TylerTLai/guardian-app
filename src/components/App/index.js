@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Culture from '../../pages/Culture';
+import GlobalStyle from '../../styles/globalStyles';
 import Home from '../../pages/Home';
 import Lifestyle from '../../pages/Lifestyle';
 import Sports from '../../pages/Sports';
-import GlobalStyle from '../../globalStyles';
 
 function App() {
   return (
@@ -12,9 +12,9 @@ function App() {
       <GlobalStyle />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/sports" component={Sports} />
         <Route exact path="/culture" component={Culture} />
         <Route exact path="/lifestyle" component={Lifestyle} />
+        <Route exact path="/sports" component={Sports} />
       </Switch>
     </Router>
   );

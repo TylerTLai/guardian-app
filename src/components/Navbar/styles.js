@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 import { NavLink as Link } from 'react-router-dom';
 
+import theme from '../../styles/theme';
+
+const { colors } = theme;
+
 export const Nav = styled.nav`
-  background-color: #10357b;
-  color: #fff;
+  background-color: ${colors.royalBlue};
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr, 1fr;
@@ -30,6 +33,6 @@ export const NavSearch = styled.div`
 
 export const NavLink = styled(Link)`
   text-decoration: none;
-  color: #fff;
+  color: ${colors.white};
   cursor: pointer;
 `;

@@ -1,7 +1,8 @@
 import React from 'react';
+import Layout from '../components/Layout';
 
 function Lifestyle() {
-  return <div>Lifestyle</div>;
+  return <Layout>Lifestyle</Layout>;
 }
 
 export default Lifestyle;

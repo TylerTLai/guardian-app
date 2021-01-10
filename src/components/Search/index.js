@@ -1,7 +1,15 @@
 import React from 'react';
+import { AiOutlineSearch } from 'react-icons/ai';
+import theme from '../../styles/theme';
+
+const { colors } = theme;
 
 function Search() {
-  return <div>Search</div>;
+  return (
+    <div>
+      <AiOutlineSearch size={25} color={`${colors.white}`} />
+    </div>
+  );
 }
 
 export default Search;

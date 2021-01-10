@@ -1,7 +1,8 @@
 import React from 'react';
+import Layout from '../components/Layout';
 
 function Culture() {
-  return <div>Culture</div>;
+  return <Layout>Culture</Layout>;
 }
 
 export default Culture;
