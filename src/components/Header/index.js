@@ -1,11 +1,14 @@
-import React from 'react'
+import React from 'react';
+import Navbar from '../Navbar';
+
+import { Container } from './styles';
 
 function Header() {
-    return (
-        <div>
-            Header
-        </div>
-    )
+  return (
+    <Container>
+      <Navbar />
+    </Container>
+  );
 }
 
-export default Header
+export default Header;

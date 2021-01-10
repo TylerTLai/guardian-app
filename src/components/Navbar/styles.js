@@ -2,26 +2,30 @@ import styled from 'styled-components';
 import { NavLink as Link } from 'react-router-dom';
 
 export const Nav = styled.nav`
-  display: flex;
-  
-  justify-content: space-between;
-  align-items: center;
   background-color: #10357b;
   color: #fff;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr, 1fr;
+  align-items: center;
   width: 100%;
   height: 125px;
+  grid-template-areas:
+    'NavLogo ...'
+    'NavMenu NavSearch';
 `;
 
 export const NavLogo = styled(Link)`
-  text-decoration: none;
-  color: #fff;
+  grid-area: NavLogo;
   cursor: pointer;
 `;
 
 export const NavMenu = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  grid-area: NavMenu;
+`;
+
+export const NavSearch = styled.div`
+  grid-area: NavSearch;
 `;
 
 export const NavLink = styled(Link)`
