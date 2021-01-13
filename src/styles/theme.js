@@ -1,6 +1,7 @@
 const theme = {
   colors: {
     royalBlue: '#09357B',
+    transparentBlue: 'rgba(9, 53, 123, 0.8)', 
     green: '#388E3C',
     red: '#F50057',
     yellow: '#FFCA28',

@@ -15,5 +15,6 @@ export const CoverImage = styled.img``;
 
 export const NewsTitle = styled.h1`
   color: ${colors.white};
-  background-color: ${colors.royalBlue};
+  background-color: ${colors.transparentBlue};
+  font-size: ${fontSizes.lg};
 `;

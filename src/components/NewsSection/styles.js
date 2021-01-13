@@ -8,7 +8,3 @@ export const FlexContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
 `;
-
-export const Heading = styled.h1`
-  font-size: ${fontSizes.xl};
-`;

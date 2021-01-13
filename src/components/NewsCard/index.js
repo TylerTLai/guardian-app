@@ -1,11 +1,11 @@
 import React from 'react';
 import { Container, CoverImage, NewsTitle } from './styles';
 
-function NewsCard() {
+function NewsCard({ title }) {
   return (
     <Container>
       <CoverImage />
-      <NewsTitle>Title</NewsTitle>
+      <NewsTitle>{title}</NewsTitle>
     </Container>
   );
 }

@@ -1,18 +1,12 @@
 import React from 'react';
 import NewsCard from '../NewsCard';
-import { FlexContainer, Heading } from './styles';
+import { FlexContainer } from './styles';
 
-function NewsSection() {
+function NewsSection({ title, image }) {
   return (
     <>
-      <Heading>Sports</Heading>
       <FlexContainer>
-        <NewsCard />
-        <NewsCard />
-        <NewsCard />
-        <NewsCard />
-        <NewsCard />
-        <NewsCard />
+        <NewsCard title={title} />
       </FlexContainer>
     </>
   );
