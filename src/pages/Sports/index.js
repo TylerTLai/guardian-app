@@ -1,38 +1,44 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+
 import { fetchArticles } from '../../store/actions/news';
+
 import Layout from '../../components/Layout';
+import NewsCard from '../../components/NewsCard';
 import NewsSection from '../../components/NewsSection';
 
+import { Container } from '../styles';
 import { Heading } from './styles';
 
-function Sports({ fetchArticles, articles, section }) {
+function Sports({ fetchArticles, articles, location }) {
   useEffect(() => {
-    fetchArticles();
+    const section = location.pathname.slice(1, 6);
+    fetchArticles(section);
   }, []);
 
-  const newsSection = articles.map((article) => {
-    return <NewsSection key={article.id} title={article.webTitle} />;
+  const newsCards = articles.map((article) => {
+    return <NewsCard key={article.id} title={article.webTitle} />;
   });
 
   return (
     <Layout>
-      <Heading>{section}</Heading>
-      {newsSection}
+      <Container>
+        <Heading>Sports</Heading>
+        <NewsSection>{newsCards}</NewsSection>
+      </Container>
     </Layout>
   );
 }
 
 const mapStateToProps = (state) => {
   return {
-    section: state.section,
     articles: state.articles,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchArticles: () => dispatch(fetchArticles()),
+    fetchArticles: (section) => dispatch(fetchArticles(section)),
   };
 };
 

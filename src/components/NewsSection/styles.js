@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 
-import theme from '../../styles/theme';
-
-const { fontSizes } = theme;
-
-export const FlexContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+export const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-gap: 20px 20px;
+  min-width: 350px;
 `;

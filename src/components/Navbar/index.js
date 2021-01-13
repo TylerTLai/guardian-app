@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  FlexContainer,
+  GridContainer,
   Nav,
   NavLink,
   NavLogo,
@@ -21,7 +21,7 @@ function Navbar() {
       <NavLogo to="/">
         <img src={logo} alt="The Peaks logo" />
       </NavLogo>
-      <FlexContainer>
+      <GridContainer>
         <NavMenu>
           <NavLink to="/" color={colors.green}>
             NEWS TODAY
@@ -39,7 +39,7 @@ function Navbar() {
         <NavSearch>
           <Search />
         </NavSearch>
-      </FlexContainer>
+      </GridContainer>
     </Nav>
   );
 }

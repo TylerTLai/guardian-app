@@ -1,13 +1,10 @@
 import React from 'react';
-import NewsCard from '../NewsCard';
-import { FlexContainer } from './styles';
+import { GridContainer } from './styles';
 
-function NewsSection({ title, image }) {
+function NewsSection({ children }) {
   return (
     <>
-      <FlexContainer>
-        <NewsCard title={title} />
-      </FlexContainer>
+      <GridContainer>{children}</GridContainer>
     </>
   );
 }

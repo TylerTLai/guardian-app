@@ -8,7 +8,6 @@ export const Container = styled.div`
   width: 350px;
   height: 350px;
   border: 1px solid red;
-  margin: 1rem;
 `;
 
 export const CoverImage = styled.img``;

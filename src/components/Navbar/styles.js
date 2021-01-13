@@ -14,7 +14,7 @@ export const Nav = styled.nav`
   height: 125px;
   grid-template-areas:
     'NavLogo'
-    'FlexContainer';
+    'GridContainer';
 `;
 
 export const NavLogo = styled(Link)`
@@ -22,8 +22,8 @@ export const NavLogo = styled(Link)`
   cursor: pointer;
 `;
 
-export const FlexContainer = styled.div`
-  grid-area: FlexContainer;
+export const GridContainer = styled.div`
+  grid-area: GridContainer;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
