@@ -1,39 +1,43 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import Layout from '../../components/Layout';
-import NewsSection from '../../components/NewsSection';
 import { fetchArticles } from '../../store/actions/news';
-import { Container } from '../styles';
 
-function Home({ fetchArticles, news }) {
+import Layout from '../../components/Layout';
+import NewsCard from '../../components/NewsCard';
+import NewsSection from '../../components/NewsSection';
+
+import { Container, Heading } from '../styles';
+
+function Home({ articles, fetchArticles }) {
   useEffect(() => {
-    fetchArticles();
+    const section = 'world';
+    fetchArticles(section);
   }, []);
 
-  // console.log(news);
-
-  // const stories = news.map((newsArticle) => {
-  //   return <NewsSection title={newsArticle.webTitle} />;
-  // });
+  const newsCards = articles.map((article) => {
+    return <NewsCard key={article.id} title={article.webTitle} />;
+  });
 
   return (
     <Layout>
-      <Container>test</Container>
+      <Container>
+        <Heading>Top Stories</Heading>
+        <NewsSection>{newsCards}</NewsSection>
+      </Container>
     </Layout>
   );
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
-    news: state.news,
+    articles: state.articles,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchArticles: () => dispatch(fetchArticles()),
+    fetchArticles: (section) => dispatch(fetchArticles(section)),
   };
 };
 

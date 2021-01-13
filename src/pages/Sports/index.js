@@ -8,9 +8,9 @@ import NewsCard from '../../components/NewsCard';
 import NewsSection from '../../components/NewsSection';
 
 import { Container, Heading } from '../styles';
-// import { Heading } from './styles';
 
 function Sports({ articles, fetchArticles, location }) {
+  
   useEffect(() => {
     const section = location.pathname.slice(1, 6);
     fetchArticles(section);
