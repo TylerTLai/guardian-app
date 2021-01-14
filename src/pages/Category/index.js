@@ -9,12 +9,12 @@ import NewsSection from '../../components/NewsSection';
 
 import { ArticleLink, Container, Heading } from '../styles';
 
-function Category({ articles, fetchArticles, location }) {
-  const section = location.pathname.slice(1);
+function Category({ articles, fetchArticles, location, section }) {
+  const sectionId = location.pathname.slice(1);
 
   useEffect(() => {
-    fetchArticles(section);
-  }, []);
+    fetchArticles(sectionId);
+  }, [sectionId]);
 
   const newsCards = articles.map((article) => {
     return (
@@ -37,6 +37,7 @@ function Category({ articles, fetchArticles, location }) {
 const mapStateToProps = (state) => {
   return {
     articles: state.articles,
+    section: state.section,
   };
 };
 
