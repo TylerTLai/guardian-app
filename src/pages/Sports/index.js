@@ -9,13 +9,11 @@ import NewsSection from '../../components/NewsSection';
 
 import { ArticleLink, Container, Heading } from '../styles';
 
-function Sports({ apiURL, articles, fetchArticles, location }) {
+function Sports({ articles, fetchArticles, location }) {
   useEffect(() => {
     const section = location.pathname.slice(1, 6);
     fetchArticles(section);
   }, []);
-
-  console.log(apiURL);
 
   const newsCards = articles.map((article) => {
     return (
@@ -37,7 +35,6 @@ function Sports({ apiURL, articles, fetchArticles, location }) {
 
 const mapStateToProps = (state) => {
   return {
-    apiURL: state.apiURL,
     articles: state.articles,
   };
 };

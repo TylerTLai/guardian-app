@@ -17,7 +17,10 @@ export const SearchInput = styled.input`
   border: 0;
   color: ${colors.white};
   background-color: transparent;
-  width: 50px;
+  width: 0px;
+  cursor: pointer;
+  background: rgb(255, 255, 255) url(https://i.imgur.com/seveWIw.png) no-repeat
+    center center;
   transition: 0.3s;
 
   ::placeholder {
@@ -25,9 +28,13 @@ export const SearchInput = styled.input`
   }
 
   &:focus {
+    cursor: text;
     background-color: ${colors.transparentWhite};
     outline: 0;
     width: 230px;
+    padding-left: 1.5rem;
+    background: rgb(255, 255, 255) url(https://i.imgur.com/seveWIw.png)
+      no-repeat left center;
 
     ::placeholder {
       color: ${colors.lightblue};

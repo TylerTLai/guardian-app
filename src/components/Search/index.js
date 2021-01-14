@@ -9,9 +9,9 @@ const { colors } = theme;
 function Search() {
   return (
     <Container>
-      <SearchButton>
+      {/* <SearchButton>
         <AiOutlineSearch size={20} color={`${colors.white}`} />
-      </SearchButton>
+      </SearchButton> */}
       <SearchInput placeholder="Search all news" />
     </Container>
   );

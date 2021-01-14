@@ -1,11 +1,14 @@
-import { FETCH_ARTICLES } from '../actions/news';
+import { FETCH_ARTICLES, FETCH_ARTICLE } from '../actions/news';
 
 const initialState = {
   pages: null,
   pageSize: null,
   section: '',
   articles: [],
-  apiURL: '',
+  title: '',
+  imageSrc: '',
+  imageCaption: '',
+  imageAlt: '',
 };
 
 function news(state = initialState, action) {
@@ -19,7 +22,18 @@ function news(state = initialState, action) {
         pageSize,
         section: section.webTitle,
         articles: results,
-        apiURL: results.apiURL,
+      };
+
+    case FETCH_ARTICLE:
+      // console.log('fetch article reducer ', action.payload);
+      return {
+        ...state,
+        title: action.payload.webTitle,
+        bodyHtml: action.payload.blocks.body[0].bodyHtml,
+        imageSrc: action.payload.blocks.main.elements[0].assets[0].file,
+        imageCaption:
+          action.payload.blocks.main.elements[0].imageTypeData.caption,
+        imageAlt: action.payload.blocks.main.elements[0].imageTypeData.alt,
       };
 
     default:

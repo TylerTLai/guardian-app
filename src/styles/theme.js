@@ -10,6 +10,7 @@ const theme = {
     white: 'rgb(255, 255, 255)',
     transparentWhite: 'rgba(255, 255, 255, 0.1)',
     lightblue: '#bdd0ff',
+    gray: '#a7a7a7',
   },
 
   fontSizes: {
