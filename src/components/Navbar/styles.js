@@ -11,7 +11,7 @@ export const Nav = styled.nav`
   grid-template-columns: 1fr;
   grid-template-rows: 1fr, 1fr;
   align-items: center;
-  height: 125px;
+  height: 120px;
   grid-template-areas:
     'NavLogo'
     'GridContainer';

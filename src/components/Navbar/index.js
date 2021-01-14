@@ -26,13 +26,13 @@ function Navbar() {
           <NavLink to="/" color={colors.green}>
             NEWS TODAY
           </NavLink>
-          <NavLink to="/sports" color={colors.red}>
+          <NavLink to="/sport" color={colors.red}>
             SPORTS
           </NavLink>
           <NavLink to="/culture" color={colors.yellow}>
             CULTURE
           </NavLink>
-          <NavLink to="/lifestyle" color={colors.blue}>
+          <NavLink to="/lifeandstyle" color={colors.blue}>
             LIFESTYLE
           </NavLink>
         </NavMenu>

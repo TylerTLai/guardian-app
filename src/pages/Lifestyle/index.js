@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { fetchArticles } from '../../store/actions/news';
 
@@ -7,7 +8,7 @@ import Layout from '../../components/Layout';
 import NewsCard from '../../components/NewsCard';
 import NewsSection from '../../components/NewsSection';
 
-import { Container, Heading } from '../styles';
+import { ArticleLink, Container, Heading } from '../styles';
 
 function Lifestyle({ articles, fetchArticles }) {
   useEffect(() => {
@@ -16,7 +17,11 @@ function Lifestyle({ articles, fetchArticles }) {
   }, []);
 
   const newsCards = articles.map((article) => {
-    return <NewsCard key={article.id} title={article.webTitle} />;
+    return (
+      <ArticleLink to={'/' + article.id} key={article.id}>
+        <NewsCard title={article.webTitle} />
+      </ArticleLink>
+    );
   });
 
   return (

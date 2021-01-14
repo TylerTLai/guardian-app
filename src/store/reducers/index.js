@@ -5,6 +5,7 @@ const initialState = {
   pageSize: null,
   section: '',
   articles: [],
+  apiURL: '',
 };
 
 function news(state = initialState, action) {
@@ -18,6 +19,7 @@ function news(state = initialState, action) {
         pageSize,
         section: section.webTitle,
         articles: results,
+        apiURL: results.apiURL,
       };
 
     default:

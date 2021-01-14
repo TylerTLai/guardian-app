@@ -9,6 +9,7 @@ import Home from '../../pages/Home';
 import Culture from '../../pages/Culture';
 import Lifestyle from '../../pages/Lifestyle';
 import Sports from '../../pages/Sports';
+import Article from '../../pages/Article';
 
 function App() {
   return (
@@ -16,10 +17,11 @@ function App() {
       <Router>
         <GlobalStyle />
         <Switch>
-          <Route exact path="/" component={Home} />
           <Route exact path="/culture" component={Culture} />
-          <Route exact path="/lifestyle" component={Lifestyle} />
-          <Route exact path="/sports" component={Sports} />
+          <Route exact path="/lifeandstyle" component={Lifestyle} />
+          <Route exact path="/sport" component={Sports} />
+          <Route exact path="/" component={Home} />
+          <Route path="/:section/:articleId" component={Article} />
         </Switch>
       </Router>
     </Provider>

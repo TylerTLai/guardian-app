@@ -7,17 +7,22 @@ import Layout from '../../components/Layout';
 import NewsCard from '../../components/NewsCard';
 import NewsSection from '../../components/NewsSection';
 
-import { Container, Heading } from '../styles';
+import { ArticleLink, Container, Heading } from '../styles';
 
-function Sports({ articles, fetchArticles, location }) {
-  
+function Sports({ apiURL, articles, fetchArticles, location }) {
   useEffect(() => {
     const section = location.pathname.slice(1, 6);
     fetchArticles(section);
   }, []);
 
+  console.log(apiURL);
+
   const newsCards = articles.map((article) => {
-    return <NewsCard key={article.id} title={article.webTitle} />;
+    return (
+      <ArticleLink to={'/' + article.id} key={article.id}>
+        <NewsCard title={article.webTitle} />
+      </ArticleLink>
+    );
   });
 
   return (
@@ -32,6 +37,7 @@ function Sports({ articles, fetchArticles, location }) {
 
 const mapStateToProps = (state) => {
   return {
+    apiURL: state.apiURL,
     articles: state.articles,
   };
 };
