@@ -25,7 +25,6 @@ function news(state = initialState, action) {
       };
 
     case FETCH_ARTICLE:
-      // console.log('fetch article reducer ', action.payload);
       return {
         ...state,
         title: action.payload.webTitle,
