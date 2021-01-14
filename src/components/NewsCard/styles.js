@@ -16,4 +16,5 @@ export const NewsTitle = styled.h1`
   color: ${colors.white};
   background-color: ${colors.transparentBlue};
   font-size: ${fontSizes.lg};
+  font-weight: 200;
 `;

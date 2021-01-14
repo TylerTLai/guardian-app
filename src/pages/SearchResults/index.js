@@ -9,9 +9,9 @@ import NewsSection from '../../components/NewsSection';
 
 import { ArticleLink, Container, Heading } from '../styles';
 
-function Culture({ articles, fetchArticles, location }) {
+function SearchResults({ articles, fetchArticles }) {
   useEffect(() => {
-    const section = location.pathname;
+    const section = 'lifeandstyle';
     fetchArticles(section);
   }, []);
 
@@ -26,7 +26,7 @@ function Culture({ articles, fetchArticles, location }) {
   return (
     <Layout>
       <Container>
-        <Heading>Culture</Heading>
+        <Heading>SearchResults</Heading>
         <NewsSection>{newsCards}</NewsSection>
       </Container>
     </Layout>
@@ -45,4 +45,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Culture);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchResults);

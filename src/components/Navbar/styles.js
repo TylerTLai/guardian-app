@@ -11,7 +11,6 @@ export const Nav = styled.nav`
   grid-template-columns: 1fr;
   grid-template-rows: 1fr, 1fr;
   align-items: center;
-  height: 120px;
   grid-template-areas:
     'NavLogo'
     'GridContainer';
@@ -35,11 +34,12 @@ export const NavMenu = styled.div`
 `;
 
 export const NavSearch = styled.div`
-  display: flex;
-  justify-content: center;
-  border-bottom: 3px solid white;
-  width: 100px;
-  cursor: pointer;
+  /* display: flex; */
+  /* justify-content: start; */
+  /* background-color: transparent; */
+  /* border-bottom: 3px solid white; */
+  /* width: 100px; */
+  /* cursor: pointer; */
 `;
 
 export const NavLink = styled(Link)`
