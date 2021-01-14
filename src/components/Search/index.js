@@ -1,5 +1,5 @@
-import React from 'react';
-import { AiOutlineSearch } from 'react-icons/ai';
+import React, { useState } from 'react';
+import { BiSearchAlt2 } from 'react-icons/bi';
 import theme from '../../styles/theme';
 
 import { Container, SearchButton, SearchInput } from './styles';
@@ -7,12 +7,18 @@ import { Container, SearchButton, SearchInput } from './styles';
 const { colors } = theme;
 
 function Search() {
+  const [active, setActive] = useState(false);
+
+  const handleActiveState = () => {
+    setActive((prevState) => !prevState);
+  };
+
   return (
-    <Container>
-      {/* <SearchButton>
-        <AiOutlineSearch size={20} color={`${colors.white}`} />
-      </SearchButton> */}
-      <SearchInput placeholder="Search all news" />
+    <Container active={active}>
+      <SearchButton onClick={handleActiveState}>
+        <BiSearchAlt2 size={23} color={`${colors.white}`} />
+      </SearchButton>
+      <SearchInput placeholder="Search all news" active={active} />
     </Container>
   );
 }

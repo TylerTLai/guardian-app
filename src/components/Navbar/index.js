@@ -36,9 +36,7 @@ function Navbar() {
             LIFESTYLE
           </NavLink>
         </NavMenu>
-        <NavSearch>
-          <Search />
-        </NavSearch>
+        <Search />
       </GridContainer>
     </Nav>
   );
