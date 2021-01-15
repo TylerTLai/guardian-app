@@ -13,6 +13,7 @@ import {
   Title,
 } from './styles';
 import Layout from '../../components/Layout';
+import BookmarkButton from '../../components/BookmarkButton';
 
 function Article({
   bodyHtml,
@@ -39,9 +40,9 @@ function Article({
       <Container>
         <HeadingContainer>
           {' '}
+          <BookmarkButton text="REMOVE BOOKMARK" />
           <Title>{title}</Title>
         </HeadingContainer>
-        <hr />
         <ArticleContainer>
           <div dangerouslySetInnerHTML={{ __html: sanitizeHtml }} />
         </ArticleContainer>
