@@ -18,7 +18,7 @@ function news(state = initialState, action) {
   switch (action.type) {
     case FETCH_ARTICLES:
       const { section, results, pages, pageSize } = action.payload.response;
-      console.log('articles reducer ', action.payload);
+      // console.log('articles reducer ', action.payload);
       return {
         ...state,
         pages,

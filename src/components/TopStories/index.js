@@ -9,10 +9,8 @@ function TopStories() {
         <Heading>Top stories</Heading>
         <div>
           <BookmarkButton text="VIEW BOOKMARK" />
-          <Filter>
-            <option value="newest" selected="selected">
-              Newest First
-            </option>
+          <Filter defaultValue="newest">
+            <option value="newest">Newest First</option>
             <option value="oldest">Oldest First</option>
           </Filter>
         </div>
