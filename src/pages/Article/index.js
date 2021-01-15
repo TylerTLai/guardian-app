@@ -6,7 +6,10 @@ import { fetchArticle } from '../../store/actions/news';
 import {
   ArticleContainer,
   Caption,
+  Date,
+  Divider,
   HeadingContainer,
+  Headline,
   Image,
   ImageContainer,
   Container,
@@ -39,9 +42,14 @@ function Article({
     <Layout>
       <Container>
         <HeadingContainer>
-          {' '}
           <BookmarkButton text="REMOVE BOOKMARK" />
+          <Date>date</Date>
           <Title>{title}</Title>
+          <Headline>
+            England Women will fly out to New Zealand later this month facing
+            stringent new quarantine measures before their series in February.
+          </Headline>
+          <Divider />
         </HeadingContainer>
         <ArticleContainer>
           <div dangerouslySetInnerHTML={{ __html: sanitizeHtml }} />

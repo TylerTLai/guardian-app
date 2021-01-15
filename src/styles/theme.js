@@ -7,19 +7,20 @@ const theme = {
     mediumRed: '#D32F2F',
     yellow: '#FFCA28',
     blue: '#2196F3',
-    black: '#000000',
+    black: '#212121',
     white: 'rgb(255, 255, 255)',
     mediumBlue: '#0F3F8C',
     lightblue: '#bdd0ff',
     gray: '#A0A0A0',
+    lightGray: '#EAEAEA',
   },
 
   fontSizes: {
-    xs: '12px',
+    xs: '10px',
     sm: '14px',
     md: '16px',
-    lg: '24px',
-    xl: '50px',
+    lg: '22px',
+    xl: '34px',
   },
 };
 
