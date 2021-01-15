@@ -1,6 +1,7 @@
 import { FETCH_ARTICLES, FETCH_ARTICLE } from '../actions/news';
 
 const initialState = {
+  bodyHtml: '',
   pages: null,
   pageSize: null,
   section: '',

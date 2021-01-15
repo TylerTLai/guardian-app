@@ -5,16 +5,33 @@ import theme from '../../styles/theme';
 const { colors, fontSizes } = theme;
 
 export const Container = styled.div`
-  width: 350px;
+  border-bottom: 3px solid ${colors.mediumRed};
+  box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: row;
   height: 350px;
-  border: 1px solid red;
+  justify-content: center;
+  padding: 0;
+  position: relative;
+  width: 350px;
 `;
 
-export const CoverImage = styled.img``;
+export const Media = styled.img`
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+`;
 
-export const NewsTitle = styled.h1`
-  color: ${colors.white};
+export const Title = styled.h1`
   background-color: ${colors.transparentBlue};
+  bottom: 0;
+  color: ${colors.white};
   font-size: ${fontSizes.lg};
   font-weight: 200;
+  height: 40%;
+  margin: 0;
+  position: absolute;
+  padding: 1rem;
 `;
+
+export const Body = styled.p``;

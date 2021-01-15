@@ -16,7 +16,10 @@ function Home({ articles, fetchArticles }) {
   }, []);
 
   const newsCards = articles.map((article) => {
-    return <NewsCard key={article.id} title={article.webTitle} />;
+    const imageUrl = article.blocks.main.elements[0].assets[0].file;
+    return (
+      <NewsCard key={article.id} title={article.webTitle} imageSrc={imageUrl} />
+    );
   });
 
   return (

@@ -4,13 +4,14 @@ const theme = {
     transparentBlue: 'rgba(9, 53, 123, 0.8)',
     green: '#388E3C',
     red: '#F50057',
+    mediumRed: '#D32F2F',
     yellow: '#FFCA28',
     blue: '#2196F3',
     black: '#000000',
     white: 'rgb(255, 255, 255)',
     mediumBlue: '#0F3F8C',
     lightblue: '#bdd0ff',
-    gray: '#a7a7a7',
+    gray: '#A0A0A0',
   },
 
   fontSizes: {
