@@ -8,6 +8,8 @@ import NewsCard from '../../components/NewsCard';
 import NewsSection from '../../components/NewsSection';
 
 import { ArticleLink, Container } from '../styles';
+import { SectionTop } from './styles';
+
 import TopStories from '../../components/TopStories';
 
 function Home({ articles, fetchArticles }) {
@@ -33,7 +35,12 @@ function Home({ articles, fetchArticles }) {
     <Layout>
       <Container>
         <TopStories />
-        <h1>Sports</h1>
+        <SectionTop>
+          <h1>Sports</h1>
+          <ArticleLink to="/" color="#4daae8" textDecoration="underline">
+            See all
+          </ArticleLink>
+        </SectionTop>
         <NewsSection>{newsCards}</NewsSection>
       </Container>
     </Layout>

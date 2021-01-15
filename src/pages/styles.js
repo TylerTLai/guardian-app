@@ -13,6 +13,7 @@ export const Heading = styled.h1`
 `;
 
 export const ArticleLink = styled(Link)`
-  text-decoration: none;
+  text-decoration: ${(props) => props.textDecoration || 'none'};
   cursor: pointer;
+  color: ${(props) => props.color};
 `;
