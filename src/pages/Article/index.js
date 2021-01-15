@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import DOMPurify from 'dompurify';
+import dayjs from 'dayjs';
 
 import { fetchArticle } from '../../store/actions/news';
 import {
@@ -20,7 +21,9 @@ import BookmarkButton from '../../components/BookmarkButton';
 
 function Article({
   bodyHtml,
+  date,
   fetchArticle,
+  headline,
   imageAlt,
   imageCaption,
   imageSrc,
@@ -43,12 +46,9 @@ function Article({
       <Container>
         <HeadingContainer>
           <BookmarkButton text="REMOVE BOOKMARK" />
-          <Date>date</Date>
+          <Date>{dayjs(date).format('ddd D MMM YYYY hh:mm')}</Date>
           <Title>{title}</Title>
-          <Headline>
-            England Women will fly out to New Zealand later this month facing
-            stringent new quarantine measures before their series in February.
-          </Headline>
+          <Headline>{headline}</Headline>
           <Divider />
         </HeadingContainer>
         <ArticleContainer>
@@ -70,6 +70,8 @@ const mapStateToProps = (state) => {
     imageSrc: state.imageSrc,
     imageCaption: state.imageCaption,
     imageAlt: state.imageAlt,
+    headline: state.headline,
+    date: state.date,
   };
 };
 

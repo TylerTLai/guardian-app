@@ -55,4 +55,8 @@ export const SearchButton = styled.button`
   background-color: transparent;
   border: 0;
   outline: 0;
+
+  & svg {
+    fill: ${colors.white};
+  }
 `;

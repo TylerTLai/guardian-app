@@ -7,6 +7,8 @@ const initialState = {
   section: '',
   articles: [],
   title: '',
+  date: '',
+  headline: '',
   imageSrc: '',
   imageCaption: '',
   imageAlt: '',
@@ -26,6 +28,7 @@ function news(state = initialState, action) {
       };
 
     case FETCH_ARTICLE:
+      console.log('fetch article ', action.payload);
       return {
         ...state,
         title: action.payload.webTitle,
@@ -34,6 +37,8 @@ function news(state = initialState, action) {
         imageCaption:
           action.payload.blocks.main.elements[0].imageTypeData.caption,
         imageAlt: action.payload.blocks.main.elements[0].imageTypeData.alt,
+        headline: action.payload.fields.headline,
+        date: action.payload.webPublicationDate,
       };
 
     default:

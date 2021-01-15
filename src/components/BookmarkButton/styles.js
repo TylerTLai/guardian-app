@@ -16,5 +16,6 @@ export const Button = styled.button`
   & svg {
     vertical-align: bottom;
     margin-right: 0.5rem;
+    fill: ${colors.white};
   }
 `;

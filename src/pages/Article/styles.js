@@ -41,8 +41,10 @@ export const Caption = styled.p`
 `;
 
 export const Date = styled.p`
-  color: ${colors.gray}
   font-size: ${fontSizes.sm};
+  color: ${colors.gray};
+  text-transform: uppercase;
+  font-family: Calibri, 'Trebuchet MS', sans-serif;
 `;
 
 export const Title = styled.h1`
