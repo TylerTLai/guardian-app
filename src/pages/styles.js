@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const { fontSizes } = theme;
 
 export const Container = styled.div`
-  padding: 0.5rem 10rem 0rem 10rem;
+  padding: 3rem 10rem 5rem 10rem;
 `;
 
 export const Heading = styled.h1`

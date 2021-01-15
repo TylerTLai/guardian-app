@@ -7,7 +7,7 @@ import Layout from '../../components/Layout';
 import NewsCard from '../../components/NewsCard';
 import NewsSection from '../../components/NewsSection';
 
-import { Container, Heading } from '../styles';
+import { ArticleLink, Container, Heading } from '../styles';
 
 function Home({ articles, fetchArticles }) {
   useEffect(() => {
@@ -16,9 +16,15 @@ function Home({ articles, fetchArticles }) {
   }, []);
 
   const newsCards = articles.map((article) => {
-    const imageUrl = article.blocks.main.elements[0].assets[0].file;
+    const imageUrl = article.fields.thumbnail;
     return (
-      <NewsCard key={article.id} title={article.webTitle} imageSrc={imageUrl} />
+      <ArticleLink to={'/' + article.id} key={article.id}>
+        <NewsCard
+          key={article.id}
+          title={article.webTitle}
+          imageSrc={imageUrl}
+        />
+      </ArticleLink>
     );
   });
 

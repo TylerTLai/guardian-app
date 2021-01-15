@@ -17,9 +17,14 @@ function Category({ articles, fetchArticles, location, section }) {
   }, [sectionId]);
 
   const newsCards = articles.map((article) => {
+    const imageUrl = article.fields.thumbnail;
     return (
       <ArticleLink to={'/' + article.id} key={article.id}>
-        <NewsCard title={article.webTitle} />
+        <NewsCard
+          key={article.id}
+          title={article.webTitle}
+          imageSrc={imageUrl}
+        />
       </ArticleLink>
     );
   });
