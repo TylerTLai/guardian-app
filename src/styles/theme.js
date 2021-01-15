@@ -21,6 +21,7 @@ const theme = {
     md: '16px',
     lg: '22px',
     xl: '34px',
+    xxl: '52px',
   },
 };
 

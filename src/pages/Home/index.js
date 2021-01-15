@@ -7,7 +7,8 @@ import Layout from '../../components/Layout';
 import NewsCard from '../../components/NewsCard';
 import NewsSection from '../../components/NewsSection';
 
-import { ArticleLink, Container, Heading } from '../styles';
+import { ArticleLink, Container } from '../styles';
+import TopStories from '../../components/TopStories';
 
 function Home({ articles, fetchArticles }) {
   useEffect(() => {
@@ -15,7 +16,7 @@ function Home({ articles, fetchArticles }) {
     fetchArticles(section);
   }, []);
 
-  const newsCards = articles.map((article) => {
+  const newsCards = articles.slice(0, 3).map((article) => {
     const imageUrl = article.fields.thumbnail;
     return (
       <ArticleLink to={'/' + article.id} key={article.id}>
@@ -31,7 +32,8 @@ function Home({ articles, fetchArticles }) {
   return (
     <Layout>
       <Container>
-        <Heading>Top Stories</Heading>
+        <TopStories />
+        <h1>Sports</h1>
         <NewsSection>{newsCards}</NewsSection>
       </Container>
     </Layout>

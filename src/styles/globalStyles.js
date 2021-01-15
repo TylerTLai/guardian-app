@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 import theme from '../styles/theme';
 
-const { colors, fontSizes } = theme;
+const { colors } = theme;
 
 const GlobalStyle = createGlobalStyle`
 
@@ -13,7 +13,6 @@ const GlobalStyle = createGlobalStyle`
   color: ${colors.black};
   font-family: 'Open Sans', sans-serif;
 
- 
   & h1, h2, h3, h4 {
     font-family: 'Frank Ruhl Libre', serif;
     }
