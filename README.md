@@ -4,11 +4,15 @@ This app was made using [Guardian API](https://open-platform.theguardian.com/), 
 
 ## Screenshots
 
-Coming soon.
+![demo](https://raw.githubusercontent.com/TylerTLai/guardian-app/master/src/assets/images/demo.png)
+
+![demo](https://raw.githubusercontent.com/TylerTLai/guardian-app/master/src/assets/images/demo2.png)
+
+![demo](https://raw.githubusercontent.com/TylerTLai/guardian-app/master/src/assets/images/demo3.png)
 
 ## Todo
 
-- [ ] Add search feature
+- [ ] Add search feature˝
 - [ ] Add bookmarking feature
 - [ ] Add filter feature
 - [ ] Add loading spinner
