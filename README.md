@@ -12,7 +12,7 @@ This app was made using [Guardian API](https://open-platform.theguardian.com/), 
 
 ## Todo
 
-- [ ] Add search feature˝
+- [ ] Add search feature
 - [ ] Add bookmarking feature
 - [ ] Add filter feature
 - [ ] Add loading spinner
