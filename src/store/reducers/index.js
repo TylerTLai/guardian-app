@@ -28,7 +28,7 @@ function news(state = initialState, action) {
       };
 
     case FETCH_ARTICLE:
-      console.log('fetch article ', action.payload);
+      // need to refactor, can just get it from fields instead of blocks
       return {
         ...state,
         title: action.payload.webTitle,

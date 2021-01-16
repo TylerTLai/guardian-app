@@ -9,6 +9,7 @@ import Home from '../../pages/Home';
 
 import Article from '../../pages/Article';
 import Category from '../../pages/Category';
+import SearchResults from '../../pages/SearchResults';
 
 function App() {
   return (
@@ -16,9 +17,10 @@ function App() {
       <Router>
         <GlobalStyle />
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route path="/results" component={SearchResults} />
           <Route path="/:section/:articleId" component={Article} />
           <Route path="/:sectionId" component={Category} />
+          <Route exact path="/" component={Home} />
         </Switch>
       </Router>
     </Provider>

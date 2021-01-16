@@ -1,11 +1,32 @@
 import React from 'react';
 import BookmarkButton from '../BookmarkButton';
-import { Bottom, Container, Filter, Heading, Middle, Top } from './styles';
+import {
+  BigCard,
+  MedCard,
+  SmCard,
+  Top,
+  TopLeft,
+  TopRight,
+  Bottom,
+  TinyCard,
+  Container,
+  Filter,
+  Heading,
+  HeadingContainer,
+  Stories,
+} from './styles';
 
-function TopStories() {
+import { ArticleLink } from '../../pages/styles';
+import NewsCard from '../NewsCard';
+
+function TopStories({ topArticles }) {
+  console.log('from topstories ', topArticles);
+
+  const stories = '';
+
   return (
     <Container>
-      <Top>
+      <HeadingContainer>
         <Heading>Top stories</Heading>
         <div>
           <BookmarkButton text="VIEW BOOKMARK" />
@@ -14,9 +35,25 @@ function TopStories() {
             <option value="oldest">Oldest First</option>
           </Filter>
         </div>
-      </Top>
-      <Middle>middle</Middle>
-      <Bottom>Bottom</Bottom>
+      </HeadingContainer>
+      <Stories>
+        <>
+          <TopLeft>
+            <BigCard>a</BigCard>
+          </TopLeft>
+          <TopRight>
+            <SmCard>c</SmCard>
+            <SmCard>d</SmCard>
+            <TinyCard>e</TinyCard>
+            <TinyCard>f</TinyCard>
+          </TopRight>
+        </>
+        <Bottom>
+          <MedCard>d</MedCard>
+          <MedCard>e</MedCard>
+          <MedCard>f</MedCard>
+        </Bottom>
+      </Stories>
     </Container>
   );
 }

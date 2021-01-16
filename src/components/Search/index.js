@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
+
 import { BiSearchAlt2 } from 'react-icons/bi';
 import theme from '../../styles/theme';
 import axios from 'axios';
@@ -12,19 +14,14 @@ function Search() {
 
   const [searchStatus, setSearchStatus] = useState({
     query: '',
-    results: {},
+    results: [],
     loading: false,
     message: '',
   });
 
   useEffect(() => {
     fetchSearchResults(searchStatus.query);
-  }, [
-    searchStatus.loading,
-    searchStatus.message,
-    searchStatus.query,
-    cancelToken,
-  ]);
+  }, [searchStatus.query, cancelToken]);
 
   const [active, setActive] = useState(false);
 
@@ -49,6 +46,11 @@ function Search() {
       });
       const results = response.data.response.results;
       console.log(results);
+      // setSearchStatus({
+      //   ...searchStatus,
+      //   results: response.data.response.results,
+      //   loading: false,
+      // });
     } catch (error) {
       if (axios.isCancel(error)) {
         console.log(error.message);
@@ -67,6 +69,8 @@ function Search() {
     });
   };
 
+  console.log('results length ', searchStatus.results.length);
+
   return (
     <Container active={active}>
       <SearchButton onClick={handleActiveState}>
@@ -79,6 +83,14 @@ function Search() {
         name="query"
         value={searchStatus.query}
       />
+      {/* {searchStatus.results.length > 0 && (
+        <Redirect
+          to={{
+            pathname: '/results',
+            state: { results: searchStatus.results },
+          }}
+        />
+      )} */}
     </Container>
   );
 }

@@ -27,7 +27,7 @@ function SearchResults({ articles, fetchArticles }) {
     <Layout>
       <Container>
         <Heading>SearchResults</Heading>
-        <NewsSection>{newsCards}</NewsSection>
+        {/* <NewsSection>{newsCards}</NewsSection> */}
       </Container>
     </Layout>
   );
