@@ -2,6 +2,10 @@
 
 This app was made using [Guardian API](https://open-platform.theguardian.com/), React, Styled-Components, React Router, and React Redux. It fetches news articles from the API and displays them in a single page application.
 
+## Screenshots
+
+Coming soon.
+
 ## Todo
 
 - [ ] Add search feature
@@ -32,4 +36,3 @@ This app was made using [Guardian API](https://open-platform.theguardian.com/), 
 - [x] Design Category Page
 - [x] Design Home Page
 - [x] Define theme and styling
-
