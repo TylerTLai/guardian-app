@@ -46,8 +46,8 @@ function Category({ articles, fetchArticles, location, section }) {
 
 const mapStateToProps = (state) => {
   return {
-    articles: state.articles,
-    section: state.section,
+    articles: state.articleReducer.articles,
+    section: state.articleReducer.section,
   };
 };
 

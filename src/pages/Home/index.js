@@ -49,7 +49,7 @@ function Home({ articles, fetchArticles }) {
 
 const mapStateToProps = (state) => {
   return {
-    articles: state.articles,
+    articles: state.articleReducer.articles,
   };
 };
 
