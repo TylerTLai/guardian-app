@@ -1,7 +1,7 @@
 const theme = {
   colors: {
     royalBlue: '#09357B',
-    transparentBlue: 'rgba(9, 53, 123, 0.8)',
+    transparentBlue: 'rgba(9, 53, 123, 0.9)',
     green: '#388E3C',
     red: '#F50057',
     mediumRed: '#D32F2F',
@@ -16,7 +16,7 @@ const theme = {
   },
 
   fontSizes: {
-    xs: '10px',
+    xs: '12px',
     sm: '14px',
     md: '16px',
     lg: '22px',

@@ -9,8 +9,11 @@ import {
   TopRight,
   Bottom,
   TinyCard,
+  BFContainer,
   Container,
   Filter,
+  FilterArrow,
+  FilterStyling,
   Heading,
   HeadingContainer,
   Stories,
@@ -18,6 +21,10 @@ import {
 
 import { ArticleLink } from '../../pages/styles';
 import NewsCard from '../NewsCard';
+
+import theme from '../../styles/theme';
+
+const { fontSizes, colors } = theme;
 
 function TopStories({ topArticles }) {
   const stories = [];
@@ -31,6 +38,7 @@ function TopStories({ topArticles }) {
             <BigCard>
               <ArticleLink to={'/' + topArticles[0].id}>
                 <NewsCard
+                  borderBottom={`3px solid ${colors.green}`}
                   title={topArticles[0].webTitle}
                   imageSrc={topArticles[0].fields.thumbnail}
                 />
@@ -41,7 +49,7 @@ function TopStories({ topArticles }) {
             <SmCard>
               <ArticleLink to={'/' + topArticles[1].id}>
                 <NewsCard
-                  titleFontSize={'1.2rem'}
+                  titleFontSize={fontSizes.md}
                   title={topArticles[1].webTitle}
                   imageSrc={topArticles[1].fields.thumbnail}
                 />
@@ -49,18 +57,24 @@ function TopStories({ topArticles }) {
             </SmCard>
             <SmCard>
               <NewsCard
+                borderBottom={`3px solid ${colors.yellow}`}
+                titleFontSize={fontSizes.md}
                 title={topArticles[2].webTitle}
                 imageSrc={topArticles[2].fields.thumbnail}
               />
             </SmCard>
             <TinyCard>
               <NewsCard
+                borderBottom={`3px solid ${colors.blue}`}
+                titleFontSize={fontSizes.md}
                 title={topArticles[3].webTitle}
                 imageSrc={topArticles[3].fields.thumbnail}
               />
             </TinyCard>
             <TinyCard>
               <NewsCard
+                borderBottom={`3px solid ${colors.green}`}
+                titleFontSize={fontSizes.md}
                 title={topArticles[4].webTitle}
                 imageSrc={topArticles[4].fields.thumbnail}
               />
@@ -95,13 +109,16 @@ function TopStories({ topArticles }) {
     <Container>
       <HeadingContainer>
         <Heading>Top stories</Heading>
-        <div>
+        <BFContainer>
           <BookmarkButton text="VIEW BOOKMARK" />
-          <Filter defaultValue="newest">
-            <option value="newest">Newest First</option>
-            <option value="oldest">Oldest First</option>
-          </Filter>
-        </div>
+          <FilterStyling>
+            <FilterArrow/>
+            <Filter defaultValue="newest">
+              <option value="newest">Newest first</option>
+              <option value="oldest">Oldest first</option>
+            </Filter>
+          </FilterStyling>
+        </BFContainer>
       </HeadingContainer>
       {stories}
     </Container>

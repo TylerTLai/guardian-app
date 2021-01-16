@@ -5,7 +5,9 @@ import theme from '../../styles/theme';
 const { colors, fontSizes } = theme;
 
 export const Container = styled.div`
-  border-bottom: 3px solid ${colors.mediumRed};
+  border-bottom: ${(props) =>
+    props.borderBottom || `3px solid ${colors.mediumRed}`};
+  /* border-bottom: 3px solid ${colors.mediumRed}; */
   box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: row;

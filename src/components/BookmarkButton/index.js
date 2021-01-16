@@ -3,9 +3,9 @@ import { BsBookmarkFill } from 'react-icons/bs';
 
 import { Button } from './styles';
 
-function BookmarkButton({ text = 'ADD BOOKMARK' }) {
+function BookmarkButton({ text = 'ADD BOOKMARK', fontSize }) {
   return (
-    <Button>
+    <Button fontSize={fontSize}>
       <BsBookmarkFill />
       {text}
     </Button>

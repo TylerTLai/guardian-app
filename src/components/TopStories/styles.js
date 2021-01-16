@@ -9,11 +9,54 @@ export const Container = styled.div`
   margin-bottom: 2rem;
 `;
 
+export const BFContainer = styled.div`
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+  align-items: flex-end;
+  width: 100%;
+
+  & button {
+    justify-self: end;
+  }
+`;
+
 export const Filter = styled.select`
-  border: 0;
-  border-bottom: 3px soid ${colors.black};
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-bottom: 1px solid ${colors.gray};
+  outline: none;
   padding: 0.5rem;
-  margin-left: 1rem;
+  width: 100%;
+`;
+
+export const FilterStyling = styled.div`
+  position: relative;
+  display: inline-block;
+`;
+
+export const FilterArrow = styled.span`
+  background: ${colors.white};
+  bottom: 5px;
+  position: absolute;
+  right: 0px;
+  top: 5px;
+  width: 15px;
+  pointer-events: none;
+
+  :after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    margin-top: -5px;
+    pointer-events: none;
+    border-top: 5px solid ${colors.black};
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+  }
 `;
 
 export const Heading = styled.h1`
@@ -22,8 +65,9 @@ export const Heading = styled.h1`
 `;
 
 export const HeadingContainer = styled.div`
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: 1fr 1fr;
   justify-content: space-between;
   align-items: flex-end;
 `;
