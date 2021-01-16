@@ -26,7 +26,7 @@ export const ImageContainer = styled.div`
   margin-top: 1rem;
 `;
 
-export const HeadingContainer = styled.div`
+export const PageHeader = styled.div`
   grid-area: heading;
 `;
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import BookmarkButton from '../BookmarkButton';
 import {
   BigCard,
   MedCard,
@@ -9,18 +8,13 @@ import {
   TopRight,
   Bottom,
   TinyCard,
-  BFContainer,
   Container,
-  Filter,
-  FilterArrow,
-  FilterStyling,
-  Heading,
-  HeadingContainer,
   Stories,
 } from './styles';
 
 import { ArticleLink } from '../../pages/styles';
 import NewsCard from '../NewsCard';
+import PageHeader from '../PageHeader';
 
 import theme from '../../styles/theme';
 
@@ -29,7 +23,7 @@ const { fontSizes, colors } = theme;
 function TopStories({ topArticles }) {
   const stories = [];
 
-  // create news cards from first 8 articles
+  // create news cards from first 8 'world' section articles
   for (let i = 7; i < topArticles.slice(0, 8).length; i++) {
     stories.push(
       <Stories>
@@ -107,19 +101,11 @@ function TopStories({ topArticles }) {
 
   return (
     <Container>
-      <HeadingContainer>
-        <Heading>Top stories</Heading>
-        <BFContainer>
-          <BookmarkButton text="VIEW BOOKMARK" />
-          <FilterStyling>
-            <FilterArrow/>
-            <Filter defaultValue="newest">
-              <option value="newest">Newest first</option>
-              <option value="oldest">Oldest first</option>
-            </Filter>
-          </FilterStyling>
-        </BFContainer>
-      </HeadingContainer>
+      <PageHeader
+        title="Top stories"
+        bookmarkText="VIEW BOOKMARK"
+        filter={true}
+      />
       {stories}
     </Container>
   );

@@ -9,7 +9,7 @@ import {
   Caption,
   Date,
   Divider,
-  HeadingContainer,
+  PageHeader,
   Headline,
   Image,
   ImageContainer,
@@ -44,13 +44,13 @@ function Article({
   return (
     <Layout>
       <Container>
-        <HeadingContainer>
+        <PageHeader>
           <BookmarkButton text="REMOVE BOOKMARK" />
           <Date>{dayjs(date).format('ddd D MMM YYYY hh:mm')}</Date>
           <Title>{title}</Title>
           <Headline>{headline}</Headline>
           <Divider />
-        </HeadingContainer>
+        </PageHeader>
         <ArticleContainer>
           <div dangerouslySetInnerHTML={{ __html: sanitizeHtml }} />
         </ArticleContainer>

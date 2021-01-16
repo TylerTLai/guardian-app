@@ -10,6 +10,7 @@ import Home from '../../pages/Home';
 import Article from '../../pages/Article';
 import Category from '../../pages/Category';
 import SearchResults from '../../pages/SearchResults';
+import SavedArticles from '../../pages/SavedArticles';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Router>
         <GlobalStyle />
         <Switch>
+          <Route path="/saved-articles" component={SavedArticles} />
           <Route path="/results" component={SearchResults} />
           <Route path="/:section/:articleId" component={Article} />
           <Route path="/:sectionId" component={Category} />

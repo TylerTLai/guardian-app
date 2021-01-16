@@ -7,7 +7,8 @@ import Layout from '../../components/Layout';
 import NewsCard from '../../components/NewsCard';
 import NewsSection from '../../components/NewsSection';
 
-import { ArticleLink, Container, Heading } from '../styles';
+import { ArticleLink, Container } from '../styles';
+import PageHeader from '../../components/PageHeader';
 
 function Category({ articles, fetchArticles, location, section }) {
   const sectionId = location.pathname.slice(1);
@@ -32,7 +33,11 @@ function Category({ articles, fetchArticles, location, section }) {
   return (
     <Layout>
       <Container>
-        <Heading>{section}</Heading>
+        <PageHeader
+          title={section === 'Life and style' ? 'Lifestyle' : section}
+          bookmarkText="VIEW BOOKMARK"
+          filter={true}
+        />
         <NewsSection>{newsCards}</NewsSection>
       </Container>
     </Layout>

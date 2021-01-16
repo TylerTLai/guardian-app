@@ -8,12 +8,12 @@ export const Button = styled.button`
   color: ${colors.white};
   font-size: ${(props) => props.fontSize || fontSizes.xs};
   background-color: ${colors.royalBlue};
-  padding: 0.5rem 0;
+  padding: 0.5rem 0.4rem;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   height: 30px;
-  width: ${(props) => props.width || '145px'};
+  width: ${(props) => props.width || 'auto'};
 
   & svg {
     vertical-align: text-bottom;
