@@ -6,8 +6,9 @@ import { fetchArticles } from '../../store/actions/news';
 import Layout from '../../components/Layout';
 import NewsCard from '../../components/NewsCard';
 import NewsSection from '../../components/NewsSection';
+import PageHeader from '../../components/PageHeader';
 
-import { ArticleLink, Container, Heading } from '../styles';
+import { ArticleLink, Container } from '../styles';
 
 function SearchResults({ articles, fetchArticles }) {
   useEffect(() => {
@@ -26,7 +27,11 @@ function SearchResults({ articles, fetchArticles }) {
   return (
     <Layout>
       <Container>
-        <Heading>SearchResults</Heading>
+        <PageHeader
+          title="Search Results"
+          bookmarkText="VIEW BOOKMARK"
+          filter={true}
+        />
         {/* <NewsSection>{newsCards}</NewsSection> */}
       </Container>
     </Layout>
