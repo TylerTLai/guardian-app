@@ -16,6 +16,7 @@ export const BFContainer = styled.div`
   grid-gap: 30px;
   align-items: flex-end;
   width: 100%;
+  margin-bottom: 1rem;
 
   & button {
     justify-self: end;
@@ -70,6 +71,7 @@ export const HeadingContainer = styled.div`
   grid-template-columns: 1fr 1fr;
   justify-content: space-between;
   align-items: flex-end;
+  height: 100px;
 `;
 
 export const Top = styled.div`

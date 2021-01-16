@@ -9,8 +9,8 @@ export const Container = styled.div`
   background-color: ${colors.royalBlue};
   align-items: center;
   border-bottom: 3px solid white;
-  width: 100px;
-  padding: 0.3rem 0.3rem 0 0.3rem;
+  width: 95px;
+  padding: 0.3rem 0.3rem 0.4rem 0.3rem;
   transition: 0.3s;
 
   ${(props) =>
