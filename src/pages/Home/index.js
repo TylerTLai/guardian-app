@@ -34,7 +34,7 @@ function Home({ articles, fetchArticles }) {
   return (
     <Layout>
       <Container>
-        <TopStories topArticles={''} />
+        <TopStories topArticles={articles} />
         <SectionTop>
           <h1>Sports</h1>
           <ArticleLink to="/sport" color="#4daae8" textDecoration="underline">

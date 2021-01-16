@@ -6,6 +6,7 @@ const { fontSizes, colors } = theme;
 
 export const Container = styled.div`
   display: grid;
+  margin-bottom: 2rem;
 `;
 
 export const Filter = styled.select`
@@ -21,7 +22,6 @@ export const Heading = styled.h1`
 `;
 
 export const HeadingContainer = styled.div`
-  /* border: 1px solid red; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -54,13 +54,23 @@ export const Bottom = styled.div`
 export const BigCard = styled.div`
   width: 100%;
   height: 100%;
-  background-color: #b8c5d3;
+  /* background-color: #b8c5d3; */
+
+  & div {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const MedCard = styled.div`
   width: 340px;
   height: 335px;
-  background-color: #b8c5d3;
+  /* background-color: #b8c5d3; */
+
+  & div {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const SmCard = styled.div`
@@ -68,18 +78,28 @@ export const SmCard = styled.div`
   height: 240px;
   max-height: 100%;
   max-width: 100%;
-  background-color: lightsalmon;
+  /* background-color: lightsalmon; */
+
+  & div {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const TinyCard = styled.div`
   width: 250px;
   height: 130px;
-  background-color: lightseagreen;
+  /* background-color: lightseagreen; */
+
+  & div {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const Stories = styled.div`
   margin-top: 1rem;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: grid;
   grid-gap: 30px;
   grid-template-columns: 1fr 1fr;
@@ -89,20 +109,20 @@ export const Stories = styled.div`
     'Bottom Bottom';
 
   ${TopLeft} {
-    background-color: pink;
+    /* background-color: pink; */
   }
 
   ${TopRight} {
     display: grid;
     grid-template-columns: repeat(2, 250px);
     grid-template-rows: repeat(2, 250px);
-    background-color: lightgreen;
+    /* background-color: lightgreen; */
   }
 
   ${Bottom} {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    background-color: lightskyblue;
+    /* background-color: lightskyblue; */
   }
 `;

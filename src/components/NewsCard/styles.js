@@ -26,12 +26,13 @@ export const Title = styled.h1`
   background-color: ${colors.transparentBlue};
   bottom: 0;
   color: ${colors.white};
-  font-size: ${fontSizes.lg};
+  font-size: ${(props) => props.fontSize || fontSizes.lg};
   font-weight: 200;
-  height: 40%;
   margin: 0;
   position: absolute;
   padding: 1rem;
+  width: 100%;
+  height: 40%;
 `;
 
 export const Body = styled.p``;
