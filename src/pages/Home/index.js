@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchArticles, fetchTopArticles } from '../../store/actions/news';
+import { fetchArticles } from '../../store/actions/news';
 
 import Layout from '../../components/Layout';
 import NewsCard from '../../components/NewsCard';
@@ -13,14 +13,11 @@ import { SectionTop } from './styles';
 import TopStories from '../../components/TopStories';
 
 function Home({ articles, fetchArticles }) {
- 
-  
   useEffect(() => {
     const section = 'sport';
     fetchArticles(section);
   }, []);
-  
-  
+
   const newsCards = articles.slice(0, 3).map((article) => {
     const imageUrl = article.fields.thumbnail;
     return (
@@ -37,7 +34,7 @@ function Home({ articles, fetchArticles }) {
   return (
     <Layout>
       <Container>
-        <TopStories topArticles={""} />
+        <TopStories topArticles={''} />
         <SectionTop>
           <h1>Sports</h1>
           <ArticleLink to="/sport" color="#4daae8" textDecoration="underline">
@@ -58,7 +55,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchTopArticles: (section) => dispatch(fetchTopArticles(section)),
     fetchArticles: (section) => dispatch(fetchArticles(section)),
   };
 };
