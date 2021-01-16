@@ -4,11 +4,11 @@ This app was made using [Guardian API](https://open-platform.theguardian.com/), 
 
 ## Screenshots
 
-![demo](https://raw.githubusercontent.com/TylerTLai/guardian-app/master/src/assets/images/demo.png)
+![demo](https://raw.githubusercontent.com/TylerTLai/guardian-app/main/src/assets/images/demo.png)
 
-![demo](https://raw.githubusercontent.com/TylerTLai/guardian-app/master/src/assets/images/demo2.png)
+![demo](https://raw.githubusercontent.com/TylerTLai/guardian-app/main/src/assets/images/demo2.png)
 
-![demo](https://raw.githubusercontent.com/TylerTLai/guardian-app/master/src/assets/images/demo3.png)
+![demo](https://raw.githubusercontent.com/TylerTLai/guardian-app/main/src/assets/images/demo3.png)
 
 ## Todo
 
