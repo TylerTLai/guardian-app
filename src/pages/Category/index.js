@@ -17,6 +17,8 @@ function Category({ articles, fetchArticles, location, section }) {
     fetchArticles(sectionId);
   }, [sectionId]);
 
+  // console.log('category ', articles);
+
   const newsCards = articles.map((article) => {
     const imageUrl = article.fields.thumbnail;
     return (

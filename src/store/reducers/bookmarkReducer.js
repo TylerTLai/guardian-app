@@ -1,7 +1,7 @@
 import {
   ADD_BOOKMARK,
   REMOVE_BOOKMARK,
-  VIEW_BOOKMARK,
+  GET_BOOKMARKS,
 } from '../actions/bookmark';
 
 const initialState = {
@@ -11,10 +11,13 @@ const initialState = {
 function bookmarkReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_BOOKMARK:
-      return state;
+      return {
+        ...state,
+        bookmarks: [...state.bookmarks, action.payload],
+      };
     case REMOVE_BOOKMARK:
       return state;
-    case VIEW_BOOKMARK:
+    case GET_BOOKMARKS:
       return state;
     default:
       return state;

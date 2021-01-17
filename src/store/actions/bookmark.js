@@ -1,21 +1,23 @@
 export const ADD_BOOKMARK = 'ADD_BOOKMARK';
 export const REMOVE_BOOKMARK = 'REMOVE_BOOKMARK';
-export const VIEW_BOOKMARK = 'VIEW_BOOKMARK';
+export const GET_BOOKMARKS = 'GET_BOOKMARKS';
 
-export const addBookmark = () => {
+export const addBookmark = (article) => {
   return {
     type: ADD_BOOKMARK,
+    payload: article,
   };
 };
 
-export const removeBookmark = () => {
+export const removeBookmark = (article) => {
   return {
     type: REMOVE_BOOKMARK,
+    payload: article,
   };
 };
 
-export const viewBookmark = () => {
+export const getBookmarks = () => {
   return {
-    type: VIEW_BOOKMARK,
+    type: GET_BOOKMARKS,
   };
 };

@@ -9,7 +9,7 @@ import {
 } from './styles';
 
 import Search from '../Search';
-import logo from '../../assets/images/the-peaks-logo.png';
+import logo from '../../assets/images/the-peaks-logo.svg';
 
 import theme from '../../styles/theme';
 
@@ -19,7 +19,7 @@ function Navbar() {
   return (
     <Nav>
       <NavLogo to="/">
-        <img src={logo} alt="The Peaks logo" />
+        <img src={logo} alt="The Peaks logo" width="150px" height="auto" />
       </NavLogo>
       <GridContainer>
         <NavMenu>

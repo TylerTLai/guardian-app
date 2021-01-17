@@ -1,17 +1,11 @@
 import { FETCH_ARTICLES, FETCH_ARTICLE } from '../actions/news';
 
 const initialState = {
-  bodyHtml: '',
   pages: null,
   pageSize: null,
   section: '',
   articles: [],
-  title: '',
-  date: '',
-  headline: '',
-  imageSrc: '',
-  imageCaption: '',
-  imageAlt: '',
+  article: null,
 };
 
 function news(state = initialState, action) {
@@ -28,17 +22,9 @@ function news(state = initialState, action) {
       };
 
     case FETCH_ARTICLE:
-      // need to refactor, can just get it from fields instead of blocks
       return {
         ...state,
-        title: action.payload.webTitle,
-        bodyHtml: action.payload.blocks.body[0].bodyHtml,
-        imageSrc: action.payload.blocks.main.elements[0].assets[0].file,
-        imageCaption:
-          action.payload.blocks.main.elements[0].imageTypeData.caption,
-        imageAlt: action.payload.blocks.main.elements[0].imageTypeData.alt,
-        headline: action.payload.fields.headline,
-        date: action.payload.webPublicationDate,
+        article: action.payload,
       };
 
     default:
