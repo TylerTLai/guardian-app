@@ -45,7 +45,7 @@ function Search() {
         cancelToken: cancelToken.token,
       });
       const results = response.data.response.results;
-      console.log(results);
+      // console.log(results);
       // setSearchStatus({
       //   ...searchStatus,
       //   results: response.data.response.results,
@@ -69,7 +69,7 @@ function Search() {
     });
   };
 
-  console.log('results length ', searchStatus.results.length);
+  // console.log('results length ', searchStatus.results.length);
 
   return (
     <Container active={active}>

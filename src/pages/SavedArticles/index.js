@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { connect } from 'react-redux';
 
@@ -10,28 +10,40 @@ import { getBookmarks, removeBookmark } from '../../store/actions/bookmark';
 import { ArticleLink, Container } from '../styles';
 
 function SavedArticles({ bookmarks, getBookmarks }) {
+  // const [bookmarks, setBookmarks] = useState([]);
+
   useEffect(() => {
     getBookmarks();
-    // console.log('saved articles ', bookmarks);
   }, []);
 
-  // const newsCards = bookmarks.map((article) => {
-  //   const imageUrl = article.fields.thumbnail;
-  //   return (
-  //     <ArticleLink to={'/' + article.id} key={article.id}>
-  //       <NewsCard
-  //         key={article.id}
-  //         title={article.webTitle}
-  //         imageSrc={imageUrl}
-  //       />
-  //     </ArticleLink>
-  //   );
-  // });
+  useEffect(() => {
+    const localStorageBookmarks = JSON.parse(
+      localStorage.getItem('guardian-bookmark')
+    );
+    console.log('from saved', localStorageBookmarks.bookmarks);
+    // setBookmarks((prevState) => [...prevState, localStorageBookmarks.bookmarks]);
+  }, []);
+
+  // const newsCards = bookmarks
+  //   ? bookmarks.map((article) => {
+  //       const imageUrl = article.fields.thumbnail;
+  //       return (
+  //         <ArticleLink to={'/' + article.id} key={article.id}>
+  //           <NewsCard
+  //             key={article.id}
+  //             title={article.webTitle}
+  //             imageSrc={imageUrl}
+  //           />
+  //         </ArticleLink>
+  //       );
+  //     })
+  //   : 'no articles bookmarked';
 
   return (
     <Layout>
       <Container>
         <PageHeader title="All bookmarks" filter={true} />
+
         {/* <NewsSection>{newsCards}</NewsSection> */}
       </Container>
     </Layout>

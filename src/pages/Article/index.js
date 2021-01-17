@@ -25,8 +25,8 @@ import BookmarkButton from '../../components/BookmarkButton';
 
 function Article({
   article,
-  addBookmark,
   bookmarks,
+  addBookmark,
   bodyHtml,
   date,
   fetchArticle,
@@ -48,15 +48,21 @@ function Article({
     ALLOWED_ATTR: ['style'],
   });
 
-  // console.log('article bookmarks ', bookmarks);
-  console.log('article page ', article);
+  const handleBookmark = (article) => {
+    addBookmark(article);
+    // localStorage.setItem('guardian-bookmark', JSON.stringify(bookmarks));
+  };
+
+  // console.log('article ', bookmarks);
 
   return (
     <Layout>
       <Container>
         <PageHeader>
           {/* <BookmarkButton text="REMOVE BOOKMARK" handleBookmark={handleBookmark} /> */}
-          <button onClick={() => addBookmark(article)}>Add to bookmark</button>
+          <button onClick={() => handleBookmark(article)}>
+            Add to bookmark
+          </button>
           <Date>{dayjs(date).format('ddd D MMM YYYY hh:mm')}</Date>
           <Title>{title}</Title>
           <Headline>{headline}</Headline>
@@ -98,6 +104,8 @@ const mapStateToProps = (state) => {
     const { alt, caption } = article.blocks.main.elements[0].imageTypeData;
 
     return {
+      bookmarks: state.bookmarkReducer.bookmarks,
+      article: article ? article : '',
       title: headline ? headline : '',
       bodyHtml: body ? body : '',
       imageSrc: thumbnail,
@@ -113,7 +121,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchArticle: (section, articleId) =>
       dispatch(fetchArticle(section, articleId)),
-    addBookmark: (articleId) => dispatch(addBookmark(articleId)),
+    addBookmark: (article) => dispatch(addBookmark(article)),
   };
 };
 

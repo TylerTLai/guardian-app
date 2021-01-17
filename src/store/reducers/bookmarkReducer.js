@@ -11,6 +11,13 @@ const initialState = {
 function bookmarkReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_BOOKMARK:
+      localStorage.setItem(
+        'guardian-bookmark',
+        JSON.stringify({
+          ...state,
+          bookmarks: [...state.bookmarks, action.payload],
+        })
+      );
       return {
         ...state,
         bookmarks: [...state.bookmarks, action.payload],
