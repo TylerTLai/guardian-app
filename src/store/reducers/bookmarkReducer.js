@@ -4,6 +4,14 @@ import {
   GET_BOOKMARKS,
 } from '../actions/bookmark';
 
+// const initialState = [
+//   {
+//     aritcle: '',
+//     id: '',
+//     bookmarked: false,
+//   },
+// ];
+
 const initialState = [];
 
 function bookmarkReducer(state = initialState, action) {
@@ -11,6 +19,10 @@ function bookmarkReducer(state = initialState, action) {
     case ADD_BOOKMARK:
       return [...state, action.payload];
     case REMOVE_BOOKMARK:
+      // return {
+      //   ...state,
+      //   bookmarks: state.bookmarks.filter(bookmark => bookmark !== action.payload)
+      // }
       return state;
     case GET_BOOKMARKS:
       return state;

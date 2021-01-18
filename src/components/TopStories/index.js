@@ -12,6 +12,8 @@ import {
   Stories,
 } from './styles';
 
+import { v4 as uuidv4 } from 'uuid';
+
 import { ArticleLink } from '../../pages/styles';
 import NewsCard from '../NewsCard';
 import PageHeader from '../PageHeader';
@@ -26,7 +28,7 @@ function TopStories({ topArticles }) {
   // create news cards from first 8 'world' section articles
   for (let i = 7; i < topArticles.slice(0, 8).length; i++) {
     stories.push(
-      <Stories key={topArticles[i]}>
+      <Stories key={uuidv4()}>
         <>
           <TopLeft>
             <BigCard>

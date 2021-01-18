@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 
 import { fetchArticles } from '../../store/actions/news';
 
@@ -22,9 +23,9 @@ function Category({ articles, fetchArticles, location, section }) {
   const newsCards = articles.map((article) => {
     const imageUrl = article.fields.thumbnail;
     return (
-      <ArticleLink to={'/' + article.id} key={article.id}>
+      <ArticleLink to={'/' + article.id} key={uuidv4()}>
         <NewsCard
-          key={article.id}
+          key={uuidv4()}
           title={article.webTitle}
           imageSrc={imageUrl}
         />

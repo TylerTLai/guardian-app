@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 
 import { connect } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 
 import Layout from '../../components/Layout';
 import NewsCard from '../../components/NewsCard';
@@ -17,11 +18,13 @@ function SavedArticles({ bookmarks, getBookmarks }) {
   const newsCards =
     bookmarks.length > 0
       ? bookmarks.map((article) => {
-          const imageUrl = article.fields.thumbnail;
+          const imageUrl = article.fields.thumbnail
+            ? article.fields.thumbnail
+            : "";
           return (
-            <ArticleLink to={'/' + article.id} key={article.id}>
+            <ArticleLink to={'/' + article.id} key={uuidv4()}>
               <NewsCard
-                key={article.id}
+                key={uuidv4()}
                 title={article.webTitle}
                 imageSrc={imageUrl}
               />

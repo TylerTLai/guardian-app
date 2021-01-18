@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import DOMPurify from 'dompurify';
 import dayjs from 'dayjs';
@@ -27,6 +27,7 @@ function Article({
   article,
   addBookmark,
   bodyHtml,
+  bookmarks,
   date,
   fetchArticle,
   headline,
@@ -38,8 +39,13 @@ function Article({
 }) {
   const id = location.pathname;
 
+  const [bookmarked, setBookmarked] = useState(false);
+
   useEffect(() => {
     fetchArticle(id);
+    if (bookmarks) {
+      console.log('article ', bookmarks.includes(article));
+    }
   }, []);
 
   const sanitizeHtml = DOMPurify.sanitize(bodyHtml, {
@@ -48,17 +54,23 @@ function Article({
   });
 
   const handleBookmark = (article) => {
-    addBookmark(article);
+    if (bookmarked) {
+      // removeBookmark(article)
+      setBookmarked(false);
+    } else {
+      addBookmark(article);
+      setBookmarked(true);
+    }
   };
 
   return (
     <Layout>
       <Container>
         <PageHeader>
-          {/* <BookmarkButton text="REMOVE BOOKMARK" handleBookmark={handleBookmark} /> */}
-          <button onClick={() => handleBookmark(article)}>
-            Add to bookmark
-          </button>
+          <BookmarkButton
+            text={bookmarked ? 'Remove from bookmark' : 'Add to bookmark'}
+            handleBookmark={() => handleBookmark(article)}
+          />
           <Date>{dayjs(date).format('ddd D MMM YYYY hh:mm')}</Date>
           <Title>{title}</Title>
           <Headline>{headline}</Headline>
@@ -100,10 +112,11 @@ const mapStateToProps = (state) => {
     const { alt, caption } = article.blocks.main.elements[0].imageTypeData;
 
     return {
+      bookmarks: state.bookmarkReducer,
       article: article ? article : '',
       title: headline ? headline : '',
       bodyHtml: body ? body : '',
-      imageSrc: thumbnail,
+      imageSrc: thumbnail ? thumbnail : '',
       headline: trailText ? trailText : '',
       date: firstPublicationDate ? firstPublicationDate : '',
       imageAlt: alt ? alt : '',

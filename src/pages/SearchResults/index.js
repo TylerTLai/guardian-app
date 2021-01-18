@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 
 import { fetchArticles } from '../../store/actions/news';
 
@@ -18,7 +19,7 @@ function SearchResults({ articles, fetchArticles }) {
 
   const newsCards = articles.map((article) => {
     return (
-      <ArticleLink to={'/' + article.id} key={article.id}>
+      <ArticleLink to={'/' + article.id} key={uuidv4()}>
         <NewsCard title={article.webTitle} />
       </ArticleLink>
     );
