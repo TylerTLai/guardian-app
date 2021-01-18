@@ -17,6 +17,8 @@ function Category({ articles, fetchArticles, location, section }) {
     fetchArticles(sectionId);
   }, [sectionId]);
 
+  // console.log('category ', articles);
+
   const newsCards = articles.map((article) => {
     const imageUrl = article.fields.thumbnail;
     return (
@@ -46,8 +48,8 @@ function Category({ articles, fetchArticles, location, section }) {
 
 const mapStateToProps = (state) => {
   return {
-    articles: state.articles,
-    section: state.section,
+    articles: state.articleReducer.articles,
+    section: state.articleReducer.section,
   };
 };
 

@@ -4,6 +4,9 @@ import DOMPurify from 'dompurify';
 import dayjs from 'dayjs';
 
 import { fetchArticle } from '../../store/actions/news';
+import { addBookmark } from '../../store/actions/bookmark';
+import placeholder from '../../assets/images/placeholder.svg';
+
 import {
   ArticleContainer,
   Caption,
@@ -17,9 +20,12 @@ import {
   Title,
 } from './styles';
 import Layout from '../../components/Layout';
+
 import BookmarkButton from '../../components/BookmarkButton';
 
 function Article({
+  article,
+  addBookmark,
   bodyHtml,
   date,
   fetchArticle,
@@ -41,11 +47,18 @@ function Article({
     ALLOWED_ATTR: ['style'],
   });
 
+  const handleBookmark = (article) => {
+    addBookmark(article);
+  };
+
   return (
     <Layout>
       <Container>
         <PageHeader>
-          <BookmarkButton text="REMOVE BOOKMARK" />
+          {/* <BookmarkButton text="REMOVE BOOKMARK" handleBookmark={handleBookmark} /> */}
+          <button onClick={() => handleBookmark(article)}>
+            Add to bookmark
+          </button>
           <Date>{dayjs(date).format('ddd D MMM YYYY hh:mm')}</Date>
           <Title>{title}</Title>
           <Headline>{headline}</Headline>
@@ -55,7 +68,16 @@ function Article({
           <div dangerouslySetInnerHTML={{ __html: sanitizeHtml }} />
         </ArticleContainer>
         <ImageContainer>
-          <Image src={imageSrc} alt={imageAlt} />
+          {imageSrc ? (
+            <Image src={imageSrc} alt={imageAlt} />
+          ) : (
+            <img
+              src={placeholder}
+              alt="The Peaks placeholder"
+              width="100%"
+              height="auto"
+            />
+          )}
           <Caption>{imageCaption}</Caption>
         </ImageContainer>
       </Container>
@@ -64,21 +86,37 @@ function Article({
 }
 
 const mapStateToProps = (state) => {
-  return {
-    title: state.title,
-    bodyHtml: state.bodyHtml,
-    imageSrc: state.imageSrc,
-    imageCaption: state.imageCaption,
-    imageAlt: state.imageAlt,
-    headline: state.headline,
-    date: state.date,
-  };
+  const { article } = state.articleReducer;
+
+  if (article) {
+    const {
+      headline,
+      body,
+      thumbnail,
+      trailText,
+      firstPublicationDate,
+    } = article.fields;
+
+    const { alt, caption } = article.blocks.main.elements[0].imageTypeData;
+
+    return {
+      article: article ? article : '',
+      title: headline ? headline : '',
+      bodyHtml: body ? body : '',
+      imageSrc: thumbnail,
+      headline: trailText ? trailText : '',
+      date: firstPublicationDate ? firstPublicationDate : '',
+      imageAlt: alt ? alt : '',
+      imageCaption: caption ? caption : '',
+    };
+  }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchArticle: (section, articleId) =>
       dispatch(fetchArticle(section, articleId)),
+    addBookmark: (article) => dispatch(addBookmark(article)),
   };
 };
 
