@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import { connect } from 'react-redux';
 
@@ -10,41 +10,32 @@ import { getBookmarks, removeBookmark } from '../../store/actions/bookmark';
 import { ArticleLink, Container } from '../styles';
 
 function SavedArticles({ bookmarks, getBookmarks }) {
-  // const [bookmarks, setBookmarks] = useState([]);
-
   useEffect(() => {
     getBookmarks();
   }, []);
 
-  useEffect(() => {
-    const localStorageBookmarks = JSON.parse(
-      localStorage.getItem('guardian-bookmark')
-    );
-    console.log('from saved', localStorageBookmarks.bookmarks);
-    // setBookmarks((prevState) => [...prevState, localStorageBookmarks.bookmarks]);
-  }, []);
-
-  // const newsCards = bookmarks
-  //   ? bookmarks.map((article) => {
-  //       const imageUrl = article.fields.thumbnail;
-  //       return (
-  //         <ArticleLink to={'/' + article.id} key={article.id}>
-  //           <NewsCard
-  //             key={article.id}
-  //             title={article.webTitle}
-  //             imageSrc={imageUrl}
-  //           />
-  //         </ArticleLink>
-  //       );
-  //     })
-  //   : 'no articles bookmarked';
+  const newsCards =
+    bookmarks.length > 0
+      ? bookmarks.map((article) => {
+          const imageUrl = article.fields.thumbnail;
+          return (
+            <ArticleLink to={'/' + article.id} key={article.id}>
+              <NewsCard
+                key={article.id}
+                title={article.webTitle}
+                imageSrc={imageUrl}
+              />
+            </ArticleLink>
+          );
+        })
+      : 'No articles bookmarked.';
 
   return (
     <Layout>
       <Container>
         <PageHeader title="All bookmarks" filter={true} />
 
-        {/* <NewsSection>{newsCards}</NewsSection> */}
+        <NewsSection>{newsCards}</NewsSection>
       </Container>
     </Layout>
   );
@@ -52,7 +43,7 @@ function SavedArticles({ bookmarks, getBookmarks }) {
 
 const mapStateToProps = (state) => {
   return {
-    bookmarks: state.bookmarkReducer.bookmarks,
+    bookmarks: state.bookmarkReducer,
   };
 };
 

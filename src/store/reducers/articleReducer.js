@@ -1,11 +1,11 @@
 import { FETCH_ARTICLES, FETCH_ARTICLE } from '../actions/news';
 
 const initialState = {
-  pages: null,
-  pageSize: null,
+  pages: undefined,
+  pageSize: undefined,
   section: '',
   articles: [],
-  article: null,
+  article: undefined,
 };
 
 function news(state = initialState, action) {

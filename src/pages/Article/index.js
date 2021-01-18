@@ -25,7 +25,6 @@ import BookmarkButton from '../../components/BookmarkButton';
 
 function Article({
   article,
-  bookmarks,
   addBookmark,
   bodyHtml,
   date,
@@ -50,10 +49,7 @@ function Article({
 
   const handleBookmark = (article) => {
     addBookmark(article);
-    // localStorage.setItem('guardian-bookmark', JSON.stringify(bookmarks));
   };
-
-  // console.log('article ', bookmarks);
 
   return (
     <Layout>
@@ -104,7 +100,6 @@ const mapStateToProps = (state) => {
     const { alt, caption } = article.blocks.main.elements[0].imageTypeData;
 
     return {
-      bookmarks: state.bookmarkReducer.bookmarks,
       article: article ? article : '',
       title: headline ? headline : '',
       bodyHtml: body ? body : '',

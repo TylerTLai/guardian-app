@@ -26,7 +26,7 @@ function TopStories({ topArticles }) {
   // create news cards from first 8 'world' section articles
   for (let i = 7; i < topArticles.slice(0, 8).length; i++) {
     stories.push(
-      <Stories>
+      <Stories key={topArticles[i]}>
         <>
           <TopLeft>
             <BigCard>

@@ -3,7 +3,6 @@ export const REMOVE_BOOKMARK = 'REMOVE_BOOKMARK';
 export const GET_BOOKMARKS = 'GET_BOOKMARKS';
 
 export const addBookmark = (article) => {
-  console.log('addbookmark ', article);
   return {
     type: ADD_BOOKMARK,
     payload: article,
