@@ -6,8 +6,6 @@ const { colors } = theme;
 
 const GlobalStyle = createGlobalStyle`
 
-@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&family=Open+Sans:wght@300;400&display=swap');
-
   * {
   box-sizing: border-box;
   color: ${colors.black};

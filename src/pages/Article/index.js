@@ -1,31 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import DOMPurify from 'dompurify';
 import dayjs from 'dayjs';
+import DOMPurify from 'dompurify';
+import { v4 as uuidv4 } from 'uuid';
+
+import BookmarkButton from '../../components/BookmarkButton';
+import Layout from '../../components/Layout';
+import placeholder from '../../assets/images/placeholder.svg';
 
 import { fetchArticle } from '../../store/actions/news';
-import { addBookmark } from '../../store/actions/bookmark';
-import placeholder from '../../assets/images/placeholder.svg';
+import { addBookmark, removeBookmark } from '../../store/actions/bookmark';
 
 import {
   ArticleContainer,
   Caption,
+  Container,
   Date,
   Divider,
-  PageHeader,
   Headline,
   Image,
   ImageContainer,
-  Container,
+  PageHeader,
   Title,
 } from './styles';
-import Layout from '../../components/Layout';
-
-import BookmarkButton from '../../components/BookmarkButton';
 
 function Article({
-  article,
   addBookmark,
+  article,
   bodyHtml,
   bookmarks,
   date,
@@ -35,32 +36,51 @@ function Article({
   imageCaption,
   imageSrc,
   location,
+  removeBookmark,
   title,
 }) {
   const id = location.pathname;
 
-  const [bookmarked, setBookmarked] = useState(false);
+  const [bookmarked, setBookmarked] = useState(null);
 
   useEffect(() => {
     fetchArticle(id);
-    if (bookmarks) {
-      console.log('article ', bookmarks.includes(article));
-    }
   }, []);
 
-  const sanitizeHtml = DOMPurify.sanitize(bodyHtml, {
+  useEffect(() => {
+    
+    console.log('bookmarks ', bookmarks);
+
+    if (bookmarks) {
+      let hasArticle = bookmarks.some(
+        (articleObj) => articleObj.article.id === article.id
+      );
+      console.log('article ', article);
+      console.log('hasArticle ', hasArticle);
+      setBookmarked(hasArticle);
+    }
+  }, [bookmarks]);
+
+  const sanitizeBodyHtml = DOMPurify.sanitize(bodyHtml, {
+    ALLOWED_TAGS: ['h1', 'p', 'span'],
+    ALLOWED_ATTR: ['style'],
+  });
+
+  const sanitizeHeadlineHtml = DOMPurify.sanitize(headline, {
     ALLOWED_TAGS: ['h1', 'p', 'span'],
     ALLOWED_ATTR: ['style'],
   });
 
   const handleBookmark = (article) => {
-    if (bookmarked) {
-      // removeBookmark(article)
-      setBookmarked(false);
-    } else {
-      addBookmark(article);
-      setBookmarked(true);
-    }
+    const payload = { article: article, bookmarked: true, id: uuidv4() };
+    addBookmark(payload);
+
+    // if (bookmarked) {
+    //   removeBookmark(article);
+    // } else {
+    //   const payload = { article: article, bookmarked: true, id: uuidv4() };
+    //   addBookmark(payload);
+    // }
   };
 
   return (
@@ -73,11 +93,13 @@ function Article({
           />
           <Date>{dayjs(date).format('ddd D MMM YYYY hh:mm')}</Date>
           <Title>{title}</Title>
-          <Headline>{headline}</Headline>
+          <Headline>
+            <div dangerouslySetInnerHTML={{ __html: sanitizeHeadlineHtml }} />
+          </Headline>
           <Divider />
         </PageHeader>
         <ArticleContainer>
-          <div dangerouslySetInnerHTML={{ __html: sanitizeHtml }} />
+          <div dangerouslySetInnerHTML={{ __html: sanitizeBodyHtml }} />
         </ArticleContainer>
         <ImageContainer>
           {imageSrc ? (
@@ -112,7 +134,7 @@ const mapStateToProps = (state) => {
     const { alt, caption } = article.blocks.main.elements[0].imageTypeData;
 
     return {
-      bookmarks: state.bookmarkReducer,
+      bookmarks: state.bookmarkReducer.bookmarks,
       article: article ? article : '',
       title: headline ? headline : '',
       bodyHtml: body ? body : '',
@@ -130,6 +152,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchArticle: (section, articleId) =>
       dispatch(fetchArticle(section, articleId)),
     addBookmark: (article) => dispatch(addBookmark(article)),
+    removeBookmark: (article) => dispatch(removeBookmark(article)),
   };
 };
 

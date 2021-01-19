@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-
+import { Helmet } from 'react-helmet';
 import { store, persistor } from '../../store/store';
 
 import GlobalStyle from '../../styles/globalStyles';
@@ -18,6 +18,13 @@ function App() {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
+        <Helmet>
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&family=Open+Sans:wght@300;400&display=swap"
+            rel="stylesheet"
+          />
+        </Helmet>
         <Router>
           <GlobalStyle />
           <Switch>

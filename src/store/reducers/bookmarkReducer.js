@@ -4,28 +4,44 @@ import {
   GET_BOOKMARKS,
 } from '../actions/bookmark';
 
-// const initialState = [
-//   {
-//     aritcle: '',
-//     id: '',
-//     bookmarked: false,
-//   },
-// ];
+// import { v4 as uuidv4 } from 'uuid';
 
-const initialState = [];
+const initialState = {
+  bookmarks: [
+    {
+      article: '',
+      id: '',
+      bookmarked: null,
+    },
+  ],
+};
 
 function bookmarkReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_BOOKMARK:
-      return [...state, action.payload];
+      return {
+        ...state,
+        bookmarks: [
+          ...state.bookmarks,
+          {
+            article: action.payload.article,
+            id: action.payload.id,
+            bookmarked: action.payload.bookmarked,
+          },
+        ],
+      };
+
     case REMOVE_BOOKMARK:
       // return {
       //   ...state,
       //   bookmarks: state.bookmarks.filter(bookmark => bookmark !== action.payload)
       // }
+
       return state;
+
     case GET_BOOKMARKS:
-      return state;
+      return { ...state };
+      
     default:
       return state;
   }
