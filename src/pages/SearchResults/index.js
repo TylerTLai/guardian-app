@@ -1,8 +1,4 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { v4 as uuidv4 } from 'uuid';
-
-import { fetchArticles } from '../../store/actions/news';
 
 import Layout from '../../components/Layout';
 import NewsCard from '../../components/NewsCard';
@@ -11,16 +7,16 @@ import PageHeader from '../../components/PageHeader';
 
 import { ArticleLink, Container } from '../styles';
 
-function SearchResults({ articles, fetchArticles }) {
-  useEffect(() => {
-    const section = 'lifeandstyle';
-    fetchArticles(section);
-  }, []);
+function SearchResults(props) {
+  
+  const { results } = props.location.state;
 
-  const newsCards = articles.map((article) => {
+  const newsCards = results.map((result) => {
+    const imageUrl = result.fields.thumbnail;
+
     return (
-      <ArticleLink to={'/' + article.id} key={uuidv4()}>
-        <NewsCard title={article.webTitle} />
+      <ArticleLink to={'/' + result.id} key={result.id}>
+        <NewsCard title={result.webTitle} imageSrc={imageUrl} />
       </ArticleLink>
     );
   });
@@ -33,22 +29,10 @@ function SearchResults({ articles, fetchArticles }) {
           bookmarkText="VIEW BOOKMARK"
           filter={true}
         />
-        {/* <NewsSection>{newsCards}</NewsSection> */}
+        <NewsSection>{newsCards}</NewsSection>
       </Container>
     </Layout>
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    articles: state.articles,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchArticles: (section) => dispatch(fetchArticles(section)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(SearchResults);
+export default SearchResults;
