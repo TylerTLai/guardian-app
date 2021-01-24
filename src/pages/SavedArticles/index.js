@@ -10,26 +10,25 @@ import { getBookmarks, removeBookmark } from '../../store/actions/bookmark';
 import { ArticleLink, Container } from '../styles';
 
 function SavedArticles({ bookmarks, getBookmarks }) {
-  
   useEffect(() => {
     getBookmarks();
   }, []);
 
-  const newsCards = bookmarks.map((bookmarkObj) => {
-    if (bookmarkObj.article) {
-      const { article } = bookmarkObj;
+  const newsCards = bookmarks
+    ? bookmarks.map((bookmark) => {
+        if (bookmark) {
+          const imageUrl = bookmark.fields.thumbnail
+            ? bookmark.fields.thumbnail
+            : '';
 
-      const imageUrl = article.fields.thumbnail
-        ? bookmarkObj.article.fields.thumbnail
-        : '';
-
-      return (
-        <ArticleLink to={'/' + article.id}>
-          <NewsCard title={article.webTitle} imageSrc={imageUrl} />
-        </ArticleLink>
-      );
-    }
-  });
+          return (
+            <ArticleLink to={'/' + bookmark.id} key={bookmark.id}>
+              <NewsCard title={bookmark.webTitle} imageSrc={imageUrl} />
+            </ArticleLink>
+          );
+        }
+      })
+    : null;
 
   return (
     <Layout>

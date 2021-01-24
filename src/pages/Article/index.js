@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import dayjs from 'dayjs';
 import DOMPurify from 'dompurify';
-import { v4 as uuidv4 } from 'uuid';
 
 import { addBookmark, removeBookmark } from '../../store/actions/bookmark';
 import { fetchArticle } from '../../store/actions/news';
@@ -40,25 +39,9 @@ function Article({
 }) {
   const id = location.pathname;
 
-  const [bookmarked, setBookmarked] = useState(null);
-
   useEffect(() => {
     fetchArticle(id);
   }, []);
-
-  useEffect(() => {
-    
-    console.log('bookmarks ', bookmarks);
-
-    if (bookmarks) {
-      let hasArticle = bookmarks.some(
-        (articleObj) => articleObj.article.id === article.id
-      );
-      console.log('article ', article);
-      console.log('hasArticle ', hasArticle);
-      setBookmarked(hasArticle);
-    }
-  }, [bookmarks]);
 
   const sanitizeBodyHtml = DOMPurify.sanitize(bodyHtml, {
     ALLOWED_TAGS: ['h1', 'p', 'span'],
@@ -71,16 +54,16 @@ function Article({
   });
 
   const handleBookmark = (article) => {
-    const payload = { article: article, bookmarked: true, id: uuidv4() };
-    addBookmark(payload);
-
-    // if (bookmarked) {
-    //   removeBookmark(article);
-    // } else {
-    //   const payload = { article: article, bookmarked: true, id: uuidv4() };
-    //   addBookmark(payload);
-    // }
+    if (bookmarked) {
+      removeBookmark(article.id);
+    } else {
+      addBookmark(article);
+    }
   };
+
+  const bookmarked = bookmarks
+    ? bookmarks.some((bookmark) => bookmark.id === article.id)
+    : false;
 
   return (
     <Layout>
@@ -88,7 +71,7 @@ function Article({
         <PageHeader>
           <BookmarkButton
             text={bookmarked ? 'Remove from bookmark' : 'Add to bookmark'}
-            handleBookmark={() => handleBookmark(article)}
+            handleBookmark={() => handleBookmark(article, bookmarked)}
           />
           <Date>{dayjs(date).format('ddd D MMM YYYY hh:mm')}</Date>
           <Title>{title}</Title>
@@ -130,7 +113,9 @@ const mapStateToProps = (state) => {
       firstPublicationDate,
     } = article.fields;
 
-    const { alt, caption } = article.blocks.main.elements[0].imageTypeData;
+    const { alt, caption } = article.blocks.main
+      ? article.blocks.main.elements[0].imageTypeData
+      : '';
 
     return {
       bookmarks: state.bookmarkReducer.bookmarks,

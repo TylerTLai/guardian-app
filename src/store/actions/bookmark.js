@@ -16,10 +16,9 @@ export const getBookmarks = () => {
   };
 };
 
-export const removeBookmark = (article) => {
-  console.log('removed');
+export const removeBookmark = (articleId) => {
   return {
     type: REMOVE_BOOKMARK,
-    payload: article,
+    payload: articleId,
   };
 };
