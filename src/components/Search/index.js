@@ -1,98 +1,65 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
-
+import { connect } from 'react-redux';
 import { BiSearchAlt2 } from 'react-icons/bi';
-import theme from '../../styles/theme';
-import axios from 'axios';
 
+import { requestArticles } from '../../store/actions/search';
 import { Container, SearchButton, SearchInput } from './styles';
+import theme from '../../styles/theme';
 
 const { colors } = theme;
 
-function Search() {
-  let cancelToken;
+function Search({ searchResponse, requestArticles }) {
+  const [activeAnimation, setActiveAnimation] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const [searchStatus, setSearchStatus] = useState({
-    query: '',
-    results: [],
-    loading: false,
-    message: '',
-  });
-
-  useEffect(() => {
-    fetchSearchResults(searchStatus.query);
-  }, [searchStatus.query, cancelToken]);
-
-  const [active, setActive] = useState(false);
-
-  const handleActiveState = () => {
-    setActive((prevState) => !prevState);
-  };
-
-  const fetchSearchResults = async (query) => {
-    const searchURL = `https://content.guardianapis.com/search?q=${query}&format=json&show-fields=headline,thumbnail&order-by=relevance&api-key=${process.env.REACT_APP_GUARDIAN_API_KEY}`;
-
-    //Check if there are any previous pending requests
-    if (typeof cancelToken != typeof undefined) {
-      cancelToken.cancel('Operation canceled due to new request.');
-    }
-
-    //Save the cancel token for the current request
-    cancelToken = axios.CancelToken.source();
-
-    try {
-      const response = await axios.get(searchURL, {
-        cancelToken: cancelToken.token,
-      });
-      const results = response.data.response.results;
-      // console.log(results);
-      // setSearchStatus({
-      //   ...searchStatus,
-      //   results: response.data.response.results,
-      //   loading: false,
-      // });
-    } catch (error) {
-      if (axios.isCancel(error)) {
-        console.log(error.message);
-      }
-    }
+  const handleActiveAnimation = () => {
+    setActiveAnimation((prevState) => !prevState);
   };
 
   const handleInputChange = (event) => {
-    const query = event.target.value;
-
-    setSearchStatus({
-      ...searchStatus,
-      query: query,
-      loading: true,
-      message: '',
-    });
+    setSearchQuery((prevState) => event.target.value);
+    requestArticles(searchQuery);
   };
 
-  // console.log('results length ', searchStatus.results.length);
-
   return (
-    <Container active={active}>
-      <SearchButton onClick={handleActiveState}>
+    <Container active={activeAnimation}>
+      <SearchButton onClick={handleActiveAnimation}>
         <BiSearchAlt2 size={23} color={`${colors.white}`} />
       </SearchButton>
       <SearchInput
+        minLength={3}
+        debounceTimeout={1000}
         onChange={handleInputChange}
         placeholder="Search all news"
-        active={active}
+        active={activeAnimation}
+        autoComplete="off"
         name="query"
-        value={searchStatus.query}
+        value={searchQuery}
       />
-      {/* {searchStatus.results.length > 0 && (
+
+      {searchQuery && searchResponse.results.length > 0 && (
         <Redirect
           to={{
             pathname: '/results',
-            state: { results: searchStatus.results },
+            state: { results: searchResponse.results },
           }}
         />
-      )} */}
+      )}
     </Container>
   );
 }
 
-export default Search;
+const mapStateToProps = (state) => {
+  return {
+    searchResponse: state.searchReducer,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    requestArticles: (query) => dispatch(requestArticles(query)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);

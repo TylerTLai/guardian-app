@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import theme from '../../styles/theme';
+import { DebounceInput } from 'react-debounce-input';
 
 const { fontSizes, colors } = theme;
 
@@ -21,7 +22,7 @@ export const Container = styled.div`
   `}
 `;
 
-export const SearchInput = styled.input`
+export const SearchInput = styled(DebounceInput)`
   font-size: ${fontSizes.md};
   border: 0;
   color: ${colors.white};
