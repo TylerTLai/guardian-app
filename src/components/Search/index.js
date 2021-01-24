@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { BiSearchAlt2 } from 'react-icons/bi';
 import { Redirect } from 'react-router-dom';
@@ -30,6 +30,7 @@ function Search({ searchResponse, requestArticles }) {
         <BiSearchAlt2 size={23} color={`${colors.white}`} />
       </SearchButton>
       <SearchInput
+        autoFocus
         onBlur={() => setActiveAnimation(false)}
         minLength={3}
         debounceTimeout={1000}
