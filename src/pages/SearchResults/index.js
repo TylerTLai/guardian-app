@@ -8,8 +8,9 @@ import PageHeader from '../../components/PageHeader';
 import { ArticleLink, Container } from '../styles';
 
 function SearchResults(props) {
-  
   const { results } = props.location.state;
+
+  console.log('search results ', results);
 
   const newsCards = results.map((result) => {
     const imageUrl = result.fields.thumbnail;

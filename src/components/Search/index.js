@@ -18,8 +18,9 @@ function Search({ searchResponse, requestArticles }) {
   };
 
   const handleInputChange = (event) => {
-    setSearchQuery((prevState) => event.target.value);
-    requestArticles(searchQuery);
+    const query = event.target.value;
+    setSearchQuery(query);
+    requestArticles(query);
   };
 
   return (
