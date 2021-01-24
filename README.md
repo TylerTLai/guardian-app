@@ -11,8 +11,6 @@ This app was made using [Guardian API](https://open-platform.theguardian.com/), 
 
 ## Todo
 
-- [ ] Add search feature
-- [ ] Add bookmarking feature
 - [ ] Add filter feature
 - [ ] Add loading spinner
 - [ ] Make mobile responsive
@@ -22,6 +20,8 @@ This app was made using [Guardian API](https://open-platform.theguardian.com/), 
 
 ## Done
 
+- [x] Add search feature
+- [x] Add bookmarking feature
 - [x] Add readme
 - [x] Design Saved Articles Page
 - [x] Design Select Component
