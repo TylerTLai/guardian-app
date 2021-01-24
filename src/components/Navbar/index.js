@@ -1,4 +1,8 @@
 import React from 'react';
+
+import logo from '../../assets/images/the-peaks-logo.svg';
+import Search from '../Search';
+
 import {
   GridContainer,
   Nav,
@@ -7,9 +11,6 @@ import {
   NavMenu,
   NavSearch,
 } from './styles';
-
-import Search from '../Search';
-import logo from '../../assets/images/the-peaks-logo.svg';
 
 import theme from '../../styles/theme';
 

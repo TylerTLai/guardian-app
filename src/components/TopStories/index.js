@@ -1,4 +1,10 @@
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
+
+import NewsCard from '../NewsCard';
+import PageHeader from '../PageHeader';
+
+import { ArticleLink } from '../../pages/styles';
 import {
   BigCard,
   MedCard,
@@ -11,12 +17,6 @@ import {
   Container,
   Stories,
 } from './styles';
-
-import { v4 as uuidv4 } from 'uuid';
-
-import { ArticleLink } from '../../pages/styles';
-import NewsCard from '../NewsCard';
-import PageHeader from '../PageHeader';
 
 import theme from '../../styles/theme';
 

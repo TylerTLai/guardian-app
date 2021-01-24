@@ -2,15 +2,13 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import { fetchArticles } from '../../store/actions/news';
-
 import Layout from '../../components/Layout';
 import NewsCard from '../../components/NewsCard';
 import NewsSection from '../../components/NewsSection';
+import TopStories from '../../components/TopStories';
 
 import { ArticleLink, Container } from '../styles';
 import { SectionTop } from './styles';
-
-import TopStories from '../../components/TopStories';
 
 function Home({ articles, fetchArticles }) {
   useEffect(() => {

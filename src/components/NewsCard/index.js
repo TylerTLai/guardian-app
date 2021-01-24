@@ -1,7 +1,8 @@
 import React from 'react';
-import { Container, Media, Title } from './styles';
 
 import placeholder from '../../assets/images/placeholder.svg';
+
+import { Container, Media, Title } from './styles';
 
 function NewsCard({ title, titleFontSize, imageSrc, borderBottom }) {
   return (

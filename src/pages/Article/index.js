@@ -4,12 +4,11 @@ import dayjs from 'dayjs';
 import DOMPurify from 'dompurify';
 import { v4 as uuidv4 } from 'uuid';
 
+import { addBookmark, removeBookmark } from '../../store/actions/bookmark';
+import { fetchArticle } from '../../store/actions/news';
 import BookmarkButton from '../../components/BookmarkButton';
 import Layout from '../../components/Layout';
 import placeholder from '../../assets/images/placeholder.svg';
-
-import { fetchArticle } from '../../store/actions/news';
-import { addBookmark, removeBookmark } from '../../store/actions/bookmark';
 
 import {
   ArticleContainer,

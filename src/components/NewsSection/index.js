@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { GridContainer } from './styles';
 
 function NewsSection({ children }) {

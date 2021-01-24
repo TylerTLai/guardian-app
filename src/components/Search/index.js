@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { BiSearchAlt2 } from 'react-icons/bi';
+import { Redirect } from 'react-router-dom';
 
 import { requestArticles } from '../../store/actions/search';
+
 import { Container, SearchButton, SearchInput } from './styles';
 import theme from '../../styles/theme';
 
@@ -29,6 +30,7 @@ function Search({ searchResponse, requestArticles }) {
         <BiSearchAlt2 size={23} color={`${colors.white}`} />
       </SearchButton>
       <SearchInput
+        onBlur={() => setActiveAnimation(false)}
         minLength={3}
         debounceTimeout={1000}
         onChange={handleInputChange}
