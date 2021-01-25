@@ -67,6 +67,7 @@ function TopStories({ fetchTopStories, section, topStories }) {
             </SmCard>
             <TinyCard>
               <NewsCard
+                backgroundColor={colors.royalBlue}
                 borderBottom={`3px solid ${colors.blue}`}
                 titleFontSize={fontSizes.md}
                 title={topStories[3].webTitle}
@@ -76,6 +77,7 @@ function TopStories({ fetchTopStories, section, topStories }) {
             </TinyCard>
             <TinyCard>
               <NewsCard
+                backgroundColor={colors.royalBlue}
                 borderBottom={`3px solid ${colors.green}`}
                 titleFontSize={fontSizes.md}
                 title={topStories[4].webTitle}

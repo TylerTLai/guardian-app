@@ -25,7 +25,8 @@ export const Media = styled.img`
 `;
 
 export const Title = styled.h1`
-  background-color: ${colors.transparentBlue};
+  background-color: ${(props) =>
+    props.backgroundColor || colors.transparentBlue};
   bottom: 0;
   color: ${colors.white};
   font-size: ${(props) => props.fontSize || fontSizes.lg};
