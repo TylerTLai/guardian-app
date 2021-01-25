@@ -26,14 +26,14 @@ export const Media = styled.img`
 
 export const TextContainer = styled.div`
   background-color: ${(props) =>
-    props.backgroundColor || colors.transparentBlue};
+    props.backgroundColor || colors.red};
   display: flex;
-  height: ${(props) => props.height || '100%'};
+  height: ${(props) => props.height || '100px'};
   flex-direction: column;
   justify-content: flex-end;
   border: 5px solid green;
   position: absolute;
-  /* bottom: 0; */
+  bottom: 0;
 `;
 
 export const Title = styled.h1`
