@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 
 import NewsCard from '../NewsCard';
@@ -19,35 +20,40 @@ import {
 } from './styles';
 
 import theme from '../../styles/theme';
+import { fetchTopStories } from '../../store/actions/articles';
 
 const { fontSizes, colors } = theme;
 
-function TopStories({ topArticles }) {
+function TopStories({ fetchTopStories, section, topStories }) {
+  useEffect(() => {
+    fetchTopStories(section);
+  }, []);
+
   const stories = [];
 
   // create news cards from first 8 'world' section articles
-  for (let i = 7; i < topArticles.slice(0, 8).length; i++) {
+  for (let i = 7; i < topStories.slice(0, 8).length; i++) {
     stories.push(
       <Stories key={uuidv4()}>
         <>
           <TopLeft>
             <BigCard>
-              <ArticleLink to={'/' + topArticles[0].id}>
+              <ArticleLink to={'/' + topStories[0].id}>
                 <NewsCard
                   borderBottom={`3px solid ${colors.green}`}
-                  title={topArticles[0].webTitle}
-                  imageSrc={topArticles[0].fields.thumbnail}
+                  title={topStories[0].webTitle}
+                  imageSrc={topStories[0].fields.thumbnail}
                 />
               </ArticleLink>
             </BigCard>
           </TopLeft>
           <TopRight>
             <SmCard>
-              <ArticleLink to={'/' + topArticles[1].id}>
+              <ArticleLink to={'/' + topStories[1].id}>
                 <NewsCard
                   titleFontSize={fontSizes.md}
-                  title={topArticles[1].webTitle}
-                  imageSrc={topArticles[1].fields.thumbnail}
+                  title={topStories[1].webTitle}
+                  imageSrc={topStories[1].fields.thumbnail}
                 />
               </ArticleLink>
             </SmCard>
@@ -55,24 +61,24 @@ function TopStories({ topArticles }) {
               <NewsCard
                 borderBottom={`3px solid ${colors.yellow}`}
                 titleFontSize={fontSizes.md}
-                title={topArticles[2].webTitle}
-                imageSrc={topArticles[2].fields.thumbnail}
+                title={topStories[2].webTitle}
+                imageSrc={topStories[2].fields.thumbnail}
               />
             </SmCard>
             <TinyCard>
               <NewsCard
                 borderBottom={`3px solid ${colors.blue}`}
                 titleFontSize={fontSizes.md}
-                title={topArticles[3].webTitle}
-                imageSrc={topArticles[3].fields.thumbnail}
+                title={topStories[3].webTitle}
+                imageSrc={topStories[3].fields.thumbnail}
               />
             </TinyCard>
             <TinyCard>
               <NewsCard
                 borderBottom={`3px solid ${colors.green}`}
                 titleFontSize={fontSizes.md}
-                title={topArticles[4].webTitle}
-                imageSrc={topArticles[4].fields.thumbnail}
+                title={topStories[4].webTitle}
+                imageSrc={topStories[4].fields.thumbnail}
               />
             </TinyCard>
           </TopRight>
@@ -80,20 +86,20 @@ function TopStories({ topArticles }) {
         <Bottom>
           <MedCard>
             <NewsCard
-              title={topArticles[5].webTitle}
-              imageSrc={topArticles[5].fields.thumbnail}
+              title={topStories[5].webTitle}
+              imageSrc={topStories[5].fields.thumbnail}
             />
           </MedCard>
           <MedCard>
             <NewsCard
-              title={topArticles[6].webTitle}
-              imageSrc={topArticles[6].fields.thumbnail}
+              title={topStories[6].webTitle}
+              imageSrc={topStories[6].fields.thumbnail}
             />
           </MedCard>
           <MedCard>
             <NewsCard
-              title={topArticles[6].webTitle}
-              imageSrc={topArticles[6].fields.thumbnail}
+              title={topStories[6].webTitle}
+              imageSrc={topStories[6].fields.thumbnail}
             />
           </MedCard>
         </Bottom>
@@ -113,4 +119,16 @@ function TopStories({ topArticles }) {
   );
 }
 
-export default TopStories;
+const mapStateToProps = (state) => {
+  return {
+    topStories: state.articleReducer.topStories,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchTopStories: (section) => dispatch(fetchTopStories(section)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TopStories);

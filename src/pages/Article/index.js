@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import DOMPurify from 'dompurify';
 
 import { addBookmark, removeBookmark } from '../../store/actions/bookmark';
-import { fetchArticle } from '../../store/actions/news';
+import { fetchArticle } from '../../store/actions/articles';
 import BookmarkButton from '../../components/BookmarkButton';
 import Layout from '../../components/Layout';
 import placeholder from '../../assets/images/placeholder.svg';
