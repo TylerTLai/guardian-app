@@ -43,6 +43,7 @@ function TopStories({ fetchTopStories, section, topStories }) {
                   borderBottom={`3px solid ${colors.green}`}
                   title={topStories[0].webTitle}
                   imageSrc={topStories[0].fields.thumbnail}
+                  headline={topStories[0].fields.trailText}
                 />
               </ArticleLink>
             </BigCard>
@@ -124,6 +125,7 @@ function TopStories({ fetchTopStories, section, topStories }) {
 }
 
 const mapStateToProps = (state) => {
+  console.log('msp top stories state ', state.articleReducer.topStories);
   return {
     topStories: state.articleReducer.topStories,
   };
