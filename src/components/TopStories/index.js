@@ -71,6 +71,7 @@ function TopStories({ fetchTopStories, section, topStories }) {
                 titleFontSize={fontSizes.md}
                 title={topStories[3].webTitle}
                 imageSrc={topStories[3].fields.thumbnail}
+                height={'100%'}
               />
             </TinyCard>
             <TinyCard>
@@ -79,6 +80,7 @@ function TopStories({ fetchTopStories, section, topStories }) {
                 titleFontSize={fontSizes.md}
                 title={topStories[4].webTitle}
                 imageSrc={topStories[4].fields.thumbnail}
+                height={'100%'}
               />
             </TinyCard>
           </TopRight>

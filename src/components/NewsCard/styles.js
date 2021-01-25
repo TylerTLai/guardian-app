@@ -34,7 +34,7 @@ export const Title = styled.h1`
   position: absolute;
   padding: 1rem;
   width: 100%;
-  height: 40%;
+  height: ${(props) => props.height || '40%'};
 `;
 
 export const Body = styled.p``;

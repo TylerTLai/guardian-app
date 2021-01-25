@@ -4,7 +4,7 @@ import placeholder from '../../assets/images/placeholder.svg';
 
 import { Container, Media, Title } from './styles';
 
-function NewsCard({ title, titleFontSize, imageSrc, borderBottom }) {
+function NewsCard({ title, titleFontSize, height, imageSrc, borderBottom }) {
   return (
     <Container borderBottom={borderBottom}>
       {imageSrc ? (
@@ -17,7 +17,9 @@ function NewsCard({ title, titleFontSize, imageSrc, borderBottom }) {
           alt="The Peaks placeholder"
         />
       )}
-      <Title fontSize={titleFontSize}>{title}</Title>
+      <Title fontSize={titleFontSize} height={height}>
+        {title}
+      </Title>
     </Container>
   );
 }
