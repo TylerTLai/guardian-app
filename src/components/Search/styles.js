@@ -28,6 +28,7 @@ export const SearchInput = styled(DebounceInput)`
   color: ${colors.white};
   background-color: transparent;
   width: 0px;
+  display: none;
   cursor: pointer;
   transition: 0.3s;
 
@@ -42,6 +43,7 @@ export const SearchInput = styled(DebounceInput)`
     background-color: ${colors.transparentWhite};
     outline: 0;
     width: 230px;
+    display: inline-block;
     padding: .5rem .5rem .5rem .5rem;
 
     ::placeholder {

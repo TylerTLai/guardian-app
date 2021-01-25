@@ -30,10 +30,10 @@ function Search({ searchResponse, requestArticles }) {
         <BiSearchAlt2 size={23} color={`${colors.white}`} />
       </SearchButton>
       <SearchInput
-        autoFocus
+        inputRef={(input) => input && input.focus()}
         onBlur={() => setActiveAnimation(false)}
         minLength={3}
-        debounceTimeout={1000}
+        debounceTimeout={800}
         onChange={handleInputChange}
         placeholder="Search all news"
         active={activeAnimation}
