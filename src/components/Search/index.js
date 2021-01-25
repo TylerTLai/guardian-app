@@ -36,7 +36,7 @@ function Search({ searchResponse, requestArticles }) {
         debounceTimeout={800}
         onChange={handleInputChange}
         placeholder="Search all news"
-        active={activeAnimation}
+        active={activeAnimation ? 1 : 0}
         autoComplete="off"
         name="query"
         value={searchQuery}
