@@ -1,12 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import placeholder from '../../assets/images/placeholder.svg';
+import placeholder from "../../assets/images/placeholder.svg";
 
-import { Container, Media, TextContainer, Title, Headline } from './styles';
+import { Container, Media, TextContainer, Title, Headline } from "./styles";
 
 function NewsCard({
   title,
   titleFontSize,
+  titlePadding,
+  titlePosition,
+  headlinePadding,
   backgroundColor,
   height,
   headline = null,
@@ -18,18 +21,14 @@ function NewsCard({
       {imageSrc ? (
         <Media src={imageSrc} />
       ) : (
-        <img
-          src={placeholder}
-          width="100%"
-          height="auto"
-          alt="The Peaks placeholder"
-        />
+        <Media src={placeholder} alt="The Peaks placeholder" />
       )}
       <TextContainer backgroundColor={backgroundColor} height={height}>
         <Title
           // backgroundColor={backgroundColor}
           fontSize={titleFontSize}
-          // height={height}
+          padding={titlePadding}
+          position={titlePosition}
         >
           {title}
         </Title>

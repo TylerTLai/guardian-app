@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import theme from '../../styles/theme';
+import theme from "../../styles/theme";
 
 const { colors, fontSizes } = theme;
 
@@ -20,18 +20,18 @@ export const Container = styled.div`
 export const Media = styled.img`
   height: auto;
   object-fit: cover;
+  object-position: top left;
   width: 100%;
-  border: 5px solid pink;
 `;
 
 export const TextContainer = styled.div`
   background-color: ${(props) =>
-    props.backgroundColor || colors.red};
+    props.backgroundColor || colors.transparentBlue};
   display: flex;
-  height: ${(props) => props.height || '100px'};
+  height: ${(props) => props.height || "auto"};
+  width: 100%;
   flex-direction: column;
   justify-content: flex-end;
-  border: 5px solid green;
   position: absolute;
   bottom: 0;
 `;
@@ -40,20 +40,21 @@ export const Title = styled.h1`
   color: ${colors.white};
   font-size: ${(props) => props.fontSize || fontSizes.lg};
   font-weight: 300;
-  margin: 0;
-  padding: 1rem 1rem 0.2rem 1rem;
+  margin-bottom: 0.1rem;
+  padding: ${(props) => props.padding || "0.3rem 1rem 1rem 1rem"};
   width: 100%;
-  border: 5px solid orange;
+  position: ${(props) => props.position || "static"};
+  top: 0;
+  line-height: 1.3;
 `;
 
 export const Headline = styled.h2`
   color: ${colors.white};
   font-size: ${(props) => props.fontSize || fontSizes.md};
-  border: 5px solid purple;
   font-weight: 100;
-  margin-top: 0;
-  padding: 0 1rem 1rem 1rem;
+  padding: ${(props) => props.padding || "0 1rem 0.5rem 1rem"};
   width: 100%;
+  line-height: 1.3;
 `;
 
 export const Body = styled.p``;

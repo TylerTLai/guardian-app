@@ -14,7 +14,6 @@ export const Top = styled.div`
 `;
 
 export const TopLeft = styled.div`
-  background-color: #ffd1d1;
   min-width: 300px;
 `;
 
