@@ -22,6 +22,8 @@ const { fontSizes, colors } = theme;
 export const makeNewsArticles = (topStories, numberOfArticles) => {
   const stories = [];
 
+  //todo abstract out some of these
+  
   for (
     let i = numberOfArticles - 1;
     i < topStories.slice(0, numberOfArticles).length;
