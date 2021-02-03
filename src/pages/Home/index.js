@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchArticles } from '../../store/actions/news';
+import { fetchArticles } from '../../store/actions/articles';
 import Layout from '../../components/Layout';
 import NewsCard from '../../components/NewsCard';
 import NewsSection from '../../components/NewsSection';
@@ -17,13 +17,10 @@ function Home({ articles, fetchArticles }) {
   }, []);
 
   const newsCards = articles.slice(0, 3).map((article) => {
-    const imageUrl = article.fields.thumbnail;
+    const imageUrl = article.fields.thumbnail ? article.fields.thumbnail : '';
     return (
       <ArticleLink to={'/' + article.id} key={article.id}>
-        <NewsCard
-          title={article.webTitle}
-          imageSrc={imageUrl}
-        />
+        <NewsCard title={article.webTitle} imageSrc={imageUrl} />
       </ArticleLink>
     );
   });
@@ -31,14 +28,14 @@ function Home({ articles, fetchArticles }) {
   return (
     <Layout>
       <Container>
-        <TopStories topArticles={articles} />
-        <SectionTop>
+        <TopStories section="world" />
+        {/* <SectionTop>
           <h1>Sports</h1>
           <ArticleLink to="/sport" color="#4daae8" textDecoration="underline">
             See all
           </ArticleLink>
         </SectionTop>
-        <NewsSection>{newsCards}</NewsSection>
+        <NewsSection>{newsCards}</NewsSection> */}
       </Container>
     </Layout>
   );

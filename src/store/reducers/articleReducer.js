@@ -1,4 +1,8 @@
-import { FETCH_ARTICLE, FETCH_ARTICLES } from '../actions/news';
+import {
+  FETCH_ARTICLE,
+  FETCH_ARTICLES,
+  FETCH_TOP_STORIES,
+} from '../actions/articles';
 
 const initialState = {
   pages: null,
@@ -6,9 +10,10 @@ const initialState = {
   section: '',
   articles: [],
   article: null,
+  topStories: [],
 };
 
-function news(state = initialState, action) {
+function articles(state = initialState, action) {
   switch (action.type) {
     case FETCH_ARTICLES:
       const { section, results, pages, pageSize } = action.payload.response;
@@ -26,9 +31,18 @@ function news(state = initialState, action) {
         article: action.payload,
       };
 
+    case FETCH_TOP_STORIES:
+      return {
+        ...state,
+        pages: action.payload.response.pages,
+        pageSize: action.payload.response.pageSize,
+        section: action.payload.response.section.webTitle,
+        topStories: action.payload.response.results,
+      };
+
     default:
       return state;
   }
 }
 
-export default news;
+export default articles;

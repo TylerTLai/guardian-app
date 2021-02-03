@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
   padding: 0.4rem 10rem 7rem 10rem;
@@ -9,7 +9,7 @@ export const Container = styled.div`
 `;
 
 export const ArticleLink = styled(Link)`
-  text-decoration: ${(props) => props.textDecoration || 'none'};
+  text-decoration: ${(props) => props.textDecoration || "none"};
   cursor: pointer;
   color: ${(props) => props.color};
 `;
