@@ -13,8 +13,8 @@ export const Container = styled.div`
   justify-content: center;
   padding: 0;
   position: relative;
-  height: 350px;
-  width: 450px;
+  height: 100%;
+  width: 100%;
 `;
 
 export const Media = styled.img`

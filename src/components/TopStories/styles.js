@@ -1,108 +1,61 @@
-import styled from 'styled-components';
-
-// import theme from '../../styles/theme';
-
-// const { fontSizes, colors } = theme;
+import styled from "styled-components";
 
 export const Container = styled.div`
   display: grid;
+  grid-template-rows: auto 1fr;
   margin-bottom: 2rem;
+  min-width: 300px;
 `;
 
 export const Top = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-column-gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 `;
 
 export const TopLeft = styled.div`
-  grid-area: TopLeft;
+  background-color: #ffd1d1;
+  min-width: 300px;
 `;
 
 export const TopRight = styled.div`
-  grid-area: TopRight;
-  grid-gap: 20px 30px;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 30px 30px;
+  min-width: 300px;
 `;
 
 export const Bottom = styled.div`
-  grid-area: Bottom;
   display: grid;
-  justify-content: space-between;
-  grid-template-columns: repeat(3, 330px);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-column-gap: 30px;
 `;
 
-export const BigCard = styled.div`
+export const LgCard = styled.div`
   width: 100%;
-  height: 100%;
-  /* background-color: #b8c5d3; */
-
-  & div {
-    width: 100%;
-    height: 100%;
-  }
+  height: 400px;
 `;
 
-export const MedCard = styled.div`
-  width: 340px;
+export const MdCard = styled.div`
+  width: 100%;
   height: 335px;
-  /* background-color: #b8c5d3; */
-
-  & div {
-    width: 100%;
-    height: 100%;
-  }
 `;
 
 export const SmCard = styled.div`
-  width: 250px;
+  width: 100%;
   height: 240px;
-  max-height: 100%;
-  max-width: 100%;
-  /* background-color: lightsalmon; */
-
-  & div {
-    width: 100%;
-    height: 100%;
-  }
 `;
 
 export const TinyCard = styled.div`
-  width: 250px;
+  width: 100%;
   height: 130px;
-  /* background-color: lightseagreen; */
-
-  & div {
-    width: 100%;
-    height: 100%;
-  }
 `;
 
 export const Stories = styled.div`
-  /* border: 1px solid red; */
   display: grid;
-  grid-gap: 30px;
-  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-template-rows: 400px 335px;
-  grid-template-areas:
-    'TopLeft TopRight'
-    'Bottom Bottom';
-
-  ${TopLeft} {
-    /* background-color: pink; */
-  }
-
-  ${TopRight} {
-    display: grid;
-    grid-template-columns: repeat(2, 250px);
-    grid-template-rows: repeat(2, 250px);
-    /* background-color: lightgreen; */
-  }
-
-  ${Bottom} {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    /* background-color: lightskyblue; */
-  }
+  grid-template-rows: auto auto;
+  grid-row-gap: 30px;
 `;

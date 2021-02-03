@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { v4 as uuidv4 } from 'uuid';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
 
-import NewsCard from '../NewsCard';
-import PageHeader from '../PageHeader';
+import NewsCard from "../NewsCard";
+import PageHeader from "../PageHeader";
 
-import { ArticleLink } from '../../pages/styles';
+import { ArticleLink } from "../../pages/styles";
 import {
-  BigCard,
-  MedCard,
+  LgCard,
+  MdCard,
   SmCard,
   Top,
   TopLeft,
@@ -17,10 +17,10 @@ import {
   TinyCard,
   Container,
   Stories,
-} from './styles';
+} from "./styles";
 
-import theme from '../../styles/theme';
-import { fetchTopStories } from '../../store/actions/articles';
+import theme from "../../styles/theme";
+import { fetchTopStories } from "../../store/actions/articles";
 
 const { fontSizes, colors } = theme;
 
@@ -31,14 +31,14 @@ function TopStories({ fetchTopStories, section, topStories }) {
 
   const stories = [];
 
-  // create news cards from first 8 'world' section articles
+  // create newscards from first 8 'world' section articles
   for (let i = 7; i < topStories.slice(0, 8).length; i++) {
     stories.push(
       <Stories key={uuidv4()}>
-        <>
+        <Top>
           <TopLeft>
-            <BigCard>
-              <ArticleLink to={'/' + topStories[0].id}>
+            <LgCard>
+              <ArticleLink to={"/" + topStories[0].id}>
                 <NewsCard
                   borderBottom={`3px solid ${colors.green}`}
                   title={topStories[0].webTitle}
@@ -46,11 +46,11 @@ function TopStories({ fetchTopStories, section, topStories }) {
                   headline={topStories[0].fields.trailText}
                 />
               </ArticleLink>
-            </BigCard>
+            </LgCard>
           </TopLeft>
           <TopRight>
             <SmCard>
-              <ArticleLink to={'/' + topStories[1].id}>
+              <ArticleLink to={"/" + topStories[1].id}>
                 <NewsCard
                   titleFontSize={fontSizes.md}
                   title={topStories[1].webTitle}
@@ -73,7 +73,7 @@ function TopStories({ fetchTopStories, section, topStories }) {
                 titleFontSize={fontSizes.md}
                 title={topStories[3].webTitle}
                 imageSrc={topStories[3].fields.thumbnail}
-                height={'100%'}
+                height={"100%"}
               />
             </TinyCard>
             <TinyCard>
@@ -83,30 +83,31 @@ function TopStories({ fetchTopStories, section, topStories }) {
                 titleFontSize={fontSizes.md}
                 title={topStories[4].webTitle}
                 imageSrc={topStories[4].fields.thumbnail}
-                height={'100%'}
+                height={"100%"}
               />
             </TinyCard>
           </TopRight>
-        </>
+        </Top>
+
         <Bottom>
-          <MedCard>
+          <MdCard>
             <NewsCard
               title={topStories[5].webTitle}
               imageSrc={topStories[5].fields.thumbnail}
             />
-          </MedCard>
-          <MedCard>
+          </MdCard>
+          <MdCard>
             <NewsCard
               title={topStories[6].webTitle}
               imageSrc={topStories[6].fields.thumbnail}
             />
-          </MedCard>
-          <MedCard>
+          </MdCard>
+          <MdCard>
             <NewsCard
               title={topStories[6].webTitle}
               imageSrc={topStories[6].fields.thumbnail}
             />
-          </MedCard>
+          </MdCard>
         </Bottom>
       </Stories>
     );
@@ -119,13 +120,14 @@ function TopStories({ fetchTopStories, section, topStories }) {
         bookmarkText="VIEW BOOKMARK"
         filter={true}
       />
-      {stories}
+
+      <div>{stories}</div>
     </Container>
   );
 }
 
 const mapStateToProps = (state) => {
-  console.log('msp top stories state ', state.articleReducer.topStories);
+  console.log("msp top stories state ", state.articleReducer.topStories);
   return {
     topStories: state.articleReducer.topStories,
   };
@@ -138,3 +140,55 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TopStories);
+
+// {/* <div>
+//   <Stories>
+//     <Top style={{ backgroundColor: "hotpink" }}>
+//       <TopLeft style={{ backgroundColor: "violet" }}>
+//         {/* <LgCard>
+//                 <ArticleLink to={"/" + topStories[0].id}>
+//                   <NewsCard
+//                     borderBottom={`3px solid ${colors.green}`}
+//                     title={topStories[0].webTitle}
+//                     imageSrc={topStories[0].fields.thumbnail}
+//                     headline={topStories[0].fields.trailText}
+//                   />
+//                 </ArticleLink>
+//               </LgCard> */}
+//       </TopLeft>
+//       <TopRight style={{ backgroundColor: "mediumseagreen" }}>
+//         <SmCard
+//           style={{
+//             backgroundColor: "slategray",
+//           }}
+//         >
+//           1 small
+//         </SmCard>
+//         <SmCard
+//           style={{
+//             backgroundColor: "#c9d6df",
+//           }}
+//         >
+//           2 small
+//         </SmCard>
+//         <TinyCard
+//           style={{
+//             backgroundColor: "silver",
+//           }}
+//         >
+//           3 tiny
+//         </TinyCard>
+//         <TinyCard
+//           style={{
+//             backgroundColor: "gray",
+//             // width: "250px",
+//             // height: "130px",
+//           }}
+//         >
+//           4 tiny
+//         </TinyCard>
+//       </TopRight>
+//     </Top>
+//     <div style={{ backgroundColor: "gold" }}>bottom</div>
+//   </Stories>
+// </div>; */}

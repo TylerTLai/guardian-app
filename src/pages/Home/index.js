@@ -29,13 +29,13 @@ function Home({ articles, fetchArticles }) {
     <Layout>
       <Container>
         <TopStories section="world" />
-        <SectionTop>
+        {/* <SectionTop>
           <h1>Sports</h1>
           <ArticleLink to="/sport" color="#4daae8" textDecoration="underline">
             See all
           </ArticleLink>
         </SectionTop>
-        <NewsSection>{newsCards}</NewsSection>
+        <NewsSection>{newsCards}</NewsSection> */}
       </Container>
     </Layout>
   );
