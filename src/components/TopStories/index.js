@@ -42,6 +42,7 @@ function TopStories({ fetchTopStories, section, topStories }) {
                 <NewsCard
                   borderBottom={`3px solid ${colors.green}`}
                   title={topStories[0].webTitle}
+                  titlePadding={"0.3rem 1rem 0 1rem"}
                   imageSrc={topStories[0].fields.thumbnail}
                   headline={topStories[0].fields.trailText}
                 />
@@ -54,6 +55,7 @@ function TopStories({ fetchTopStories, section, topStories }) {
                 <NewsCard
                   titleFontSize={fontSizes.md}
                   title={topStories[1].webTitle}
+                  titleLength={90}
                   imageSrc={topStories[1].fields.thumbnail}
                 />
               </ArticleLink>
@@ -72,6 +74,7 @@ function TopStories({ fetchTopStories, section, topStories }) {
                 borderBottom={`3px solid ${colors.blue}`}
                 titleFontSize={fontSizes.md}
                 title={topStories[3].webTitle}
+                titlePosition={"absolute"}
                 imageSrc={topStories[3].fields.thumbnail}
                 height={"100%"}
               />
@@ -82,6 +85,7 @@ function TopStories({ fetchTopStories, section, topStories }) {
                 borderBottom={`3px solid ${colors.green}`}
                 titleFontSize={fontSizes.md}
                 title={topStories[4].webTitle}
+                titlePosition={"absolute"}
                 imageSrc={topStories[4].fields.thumbnail}
                 height={"100%"}
               />
