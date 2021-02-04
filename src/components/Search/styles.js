@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import theme from '../../styles/theme';
-import { DebounceInput } from 'react-debounce-input';
+import styled from "styled-components";
+import theme from "../../styles/theme";
+import { DebounceInput } from "react-debounce-input";
 
 const { fontSizes, colors } = theme;
 
@@ -11,8 +11,9 @@ export const Container = styled.div`
   align-items: center;
   border-bottom: 3px solid white;
   width: 95px;
+  height: 40px;
   padding: 0.3rem 0.3rem 0.4rem 0.3rem;
-  transition: 0.3s;
+  transition: 0.2s;
 
   ${(props) =>
     props.active &&
@@ -27,10 +28,10 @@ export const SearchInput = styled(DebounceInput)`
   border: 0;
   color: ${colors.white};
   background-color: transparent;
-  width: 0px;
+  width: 0;
   display: none;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.2s;
 
   ::placeholder {
     visibility: hidden;

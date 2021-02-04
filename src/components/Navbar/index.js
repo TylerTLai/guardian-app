@@ -1,18 +1,11 @@
-import React from 'react';
+import React from "react";
 
-import logo from '../../assets/images/the-peaks-logo.svg';
-import Search from '../Search';
+import logo from "../../assets/images/the-peaks-logo.svg";
+import Search from "../Search";
 
-import {
-  GridContainer,
-  Nav,
-  NavLink,
-  NavLogo,
-  NavMenu,
-  NavSearch,
-} from './styles';
+import { FlexContainer, Nav, NavLink, NavLogo, NavMenu } from "./styles";
 
-import theme from '../../styles/theme';
+import theme from "../../styles/theme";
 
 const { colors } = theme;
 
@@ -22,7 +15,7 @@ function Navbar() {
       <NavLogo to="/">
         <img src={logo} alt="The Peaks logo" width="150px" height="auto" />
       </NavLogo>
-      <GridContainer>
+      <FlexContainer>
         <NavMenu>
           <NavLink to="/" color={colors.green}>
             NEWS TODAY
@@ -38,7 +31,7 @@ function Navbar() {
           </NavLink>
         </NavMenu>
         <Search />
-      </GridContainer>
+      </FlexContainer>
     </Nav>
   );
 }
