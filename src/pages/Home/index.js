@@ -1,25 +1,28 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { FadingCircle } from "better-react-spinkit";
 
-import { fetchArticles } from '../../store/actions/articles';
-import Layout from '../../components/Layout';
-import NewsCard from '../../components/NewsCard';
-import NewsSection from '../../components/NewsSection';
-import TopStories from '../../components/TopStories';
+import { fetchArticles } from "../../store/actions/articles";
+import Layout from "../../components/Layout";
+import TopStories from "../../components/TopStories";
 
-import { ArticleLink, Container } from '../styles';
-import { SectionTop } from './styles';
+import { ArticleLink, Container, Heading, SpinnerContainer } from "../styles";
+import NewsSection from "../../components/NewsSection";
+import NewsCard from "../../components/NewsCard";
+import theme from "../../styles/theme";
 
-function Home({ articles, fetchArticles }) {
+const { colors } = theme;
+
+function Home({ articles, fetchArticles, loading }) {
   useEffect(() => {
-    const section = 'sport';
+    const section = "sport";
     fetchArticles(section);
   }, []);
 
   const newsCards = articles.slice(0, 3).map((article) => {
-    const imageUrl = article.fields.thumbnail ? article.fields.thumbnail : '';
+    const imageUrl = article.fields.thumbnail;
     return (
-      <ArticleLink to={'/' + article.id} key={article.id}>
+      <ArticleLink to={"/" + article.id} key={article.id}>
         <NewsCard title={article.webTitle} imageSrc={imageUrl} />
       </ArticleLink>
     );
@@ -28,14 +31,17 @@ function Home({ articles, fetchArticles }) {
   return (
     <Layout>
       <Container>
-        <TopStories section="world" />
-        {/* <SectionTop>
-          <h1>Sports</h1>
-          <ArticleLink to="/sport" color="#4daae8" textDecoration="underline">
-            See all
-          </ArticleLink>
-        </SectionTop>
-        <NewsSection>{newsCards}</NewsSection> */}
+        {loading ? (
+          <SpinnerContainer>
+            <FadingCircle size={100} color={colors.gray} />
+          </SpinnerContainer>
+        ) : (
+          <>
+            <TopStories section="world" />
+            <Heading>Sports</Heading>
+            <NewsSection>{newsCards}</NewsSection>
+          </>
+        )}
       </Container>
     </Layout>
   );
@@ -44,6 +50,7 @@ function Home({ articles, fetchArticles }) {
 const mapStateToProps = (state) => {
   return {
     articles: state.articleReducer.articles,
+    loading: state.articleReducer.loading,
   };
 };
 

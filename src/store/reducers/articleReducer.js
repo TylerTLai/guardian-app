@@ -2,15 +2,16 @@ import {
   FETCH_ARTICLE,
   FETCH_ARTICLES,
   FETCH_TOP_STORIES,
-} from '../actions/articles';
+} from "../actions/articles";
 
 const initialState = {
   pages: null,
   pageSize: null,
-  section: '',
+  section: "",
   articles: [],
   article: null,
   topStories: [],
+  loading: true,
 };
 
 function articles(state = initialState, action) {
@@ -23,12 +24,14 @@ function articles(state = initialState, action) {
         pageSize,
         section: section.webTitle,
         articles: results,
+        loading: false,
       };
 
     case FETCH_ARTICLE:
       return {
         ...state,
         article: action.payload,
+        loading: false,
       };
 
     case FETCH_TOP_STORIES:
@@ -38,6 +41,7 @@ function articles(state = initialState, action) {
         pageSize: action.payload.response.pageSize,
         section: action.payload.response.section.webTitle,
         topStories: action.payload.response.results,
+        loading: false,
       };
 
     default:

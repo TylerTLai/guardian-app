@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import { BiSearchAlt2 } from 'react-icons/bi';
-import { Redirect } from 'react-router-dom';
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import { BiSearchAlt2 } from "react-icons/bi";
+import { Redirect } from "react-router-dom";
 
-import { requestArticles } from '../../store/actions/search';
+import { requestArticles } from "../../store/actions/search";
 
-import { Container, SearchButton, SearchInput } from './styles';
-import theme from '../../styles/theme';
+import { Container, SearchButton, SearchInput } from "./styles";
+import theme from "../../styles/theme";
 
 const { colors } = theme;
 
 function Search({ searchResponse, requestArticles }) {
   const [activeAnimation, setActiveAnimation] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleActiveAnimation = () => {
     setActiveAnimation((prevState) => !prevState);
@@ -23,7 +23,6 @@ function Search({ searchResponse, requestArticles }) {
     setSearchQuery(query);
     requestArticles(query);
   };
-
   return (
     <Container active={activeAnimation}>
       <SearchButton onClick={handleActiveAnimation}>
@@ -45,7 +44,7 @@ function Search({ searchResponse, requestArticles }) {
       {searchQuery && searchResponse.results.length > 0 && (
         <Redirect
           to={{
-            pathname: '/results',
+            pathname: "/results",
             state: { results: searchResponse.results },
           }}
         />
