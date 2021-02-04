@@ -12,7 +12,6 @@ export const Nav = styled.nav`
   flex-wrap: wrap;
   min-width: 300px;
   width: 100%;
-  border: 3px solid gold;
 `;
 
 export const NavLogo = styled(Link)`
@@ -41,4 +40,11 @@ export const NavLink = styled(Link)`
   padding: 1rem 3rem 0.4rem 3rem;
   width: 200px;
   text-align: center;
+  transition: 0.2s;
+
+  &:hover {
+    border-bottom: 8px solid;
+    border-color: ${({ color }) => color || `${colors.red}`};
+    padding: 1rem 3rem 0 3rem;
+  }
 `;
