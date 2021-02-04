@@ -10,6 +10,16 @@ export const Container = styled.div`
   /* render 100vh or 100% depending on if content exists */
   /* height: 100vh; */
   /* height: 100%;  */
+
+  @media (max-width: 1230px) {
+    padding: 0.4rem 5rem 7rem 5rem;
+  }
+  @media (max-width: 768px) {
+    padding: 0.4rem 2rem 7rem 2rem;
+  }
+  @media (max-width: 500px) {
+    padding: 0.4rem 1rem 7rem 1rem;
+  }
 `;
 
 export const ArticleLink = styled(Link)`

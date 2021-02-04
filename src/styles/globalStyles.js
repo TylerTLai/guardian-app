@@ -1,11 +1,11 @@
-import { createGlobalStyle } from 'styled-components';
-import theme from '../styles/theme';
+import { createGlobalStyle } from "styled-components";
+import theme from "../styles/theme";
 
 const { colors } = theme;
 
 const GlobalStyle = createGlobalStyle`
 
-  * {
+  *, *::after, *::before {
   box-sizing: border-box;
   color: ${colors.black};
   font-family: 'Open Sans', sans-serif;
