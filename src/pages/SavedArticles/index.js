@@ -1,13 +1,15 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { motion } from "framer-motion";
 
-import Layout from '../../components/Layout';
-import NewsCard from '../../components/NewsCard';
-import NewsSection from '../../components/NewsSection';
-import PageHeader from '../../components/PageHeader';
-import { getBookmarks, removeBookmark } from '../../store/actions/bookmark';
+import Layout from "../../components/Layout";
+import NewsCard from "../../components/NewsCard";
+import NewsSection from "../../components/NewsSection";
+import PageHeader from "../../components/PageHeader";
+import { getBookmarks, removeBookmark } from "../../store/actions/bookmark";
 
-import { ArticleLink, Container } from '../styles';
+import { ArticleLink, Container } from "../styles";
+import { routeTransitionVariants } from "../../animations/routeTransitions";
 
 function SavedArticles({ bookmarks, getBookmarks }) {
   useEffect(() => {
@@ -19,10 +21,10 @@ function SavedArticles({ bookmarks, getBookmarks }) {
         if (bookmark) {
           const imageUrl = bookmark.fields.thumbnail
             ? bookmark.fields.thumbnail
-            : '';
+            : "";
 
           return (
-            <ArticleLink to={'/' + bookmark.id} key={bookmark.id}>
+            <ArticleLink to={"/" + bookmark.id} key={bookmark.id}>
               <NewsCard title={bookmark.webTitle} imageSrc={imageUrl} />
             </ArticleLink>
           );
@@ -32,10 +34,17 @@ function SavedArticles({ bookmarks, getBookmarks }) {
 
   return (
     <Layout>
-      <Container>
-        <PageHeader title="All bookmarks" filter={true} />
-        <NewsSection>{newsCards}</NewsSection>
-      </Container>
+      <motion.div
+        variants={routeTransitionVariants}
+        animate="in"
+        initial="out"
+        exit="out"
+      >
+        <Container>
+          <PageHeader title="All bookmarks" filter={true} />
+          <NewsSection>{newsCards}</NewsSection>
+        </Container>
+      </motion.div>
     </Layout>
   );
 }
