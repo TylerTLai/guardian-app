@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import BookmarkButton from "../../components/BookmarkButton";
 import {
@@ -11,8 +12,13 @@ import {
 } from "./styles";
 
 import { ArticleLink } from "../../pages/styles";
+import { sortArticles } from "../../store/actions/articles";
 
-function PageHeader({ title, bookmarkText, filter }) {
+function PageHeader({ title, bookmarkText, filter, sortArticles }) {
+  const handleFilterChange = (e) => {
+    sortArticles(e.target.value);
+  };
+
   return (
     <Container>
       <Heading>{title}</Heading>
@@ -23,7 +29,11 @@ function PageHeader({ title, bookmarkText, filter }) {
         {filter && (
           <FilterStyling>
             <FilterArrow />
-            <Filter defaultValue="newest">
+            <Filter
+              defaultValue="newest"
+              // value={sortValue}
+              onChange={(e) => handleFilterChange(e)}
+            >
               <option value="newest">Newest first</option>
               <option value="oldest">Oldest first</option>
             </Filter>
@@ -34,4 +44,10 @@ function PageHeader({ title, bookmarkText, filter }) {
   );
 }
 
-export default PageHeader;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    sortArticles: (sortValue) => dispatch(sortArticles(sortValue)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(PageHeader);

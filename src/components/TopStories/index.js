@@ -9,10 +9,10 @@ import { fetchTopStories } from "../../store/actions/articles";
 import { routeTransitionVariants } from "../../animations/routeTransitions";
 import { Container } from "./styles";
 
-function TopStories({ fetchTopStories, section, topStories }) {
+function TopStories({ fetchTopStories, section, sortValue, topStories }) {
   useEffect(() => {
-    fetchTopStories(section);
-  }, []);
+    fetchTopStories(section, sortValue);
+  }, [sortValue]);
 
   const selectedStories = makeNewsArticles(topStories, 8);
 
@@ -36,8 +36,10 @@ function TopStories({ fetchTopStories, section, topStories }) {
 }
 
 const mapStateToProps = (state) => {
+  console.log("top stories msp ", state.articleReducer.sortValue);
   return {
     topStories: state.articleReducer.topStories,
+    sortValue: state.articleReducer.sortValue,
   };
 };
 
