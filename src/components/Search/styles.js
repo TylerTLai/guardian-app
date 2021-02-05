@@ -21,6 +21,12 @@ export const Container = styled.div`
     width: 230px;
     background-color: ${colors.mediumBlue};
   `}
+
+  @media (max-width: 1024px) {
+    width: 100%;
+    display: ${(props) => props.display || "none"};
+    padding: 1.5em .5rem;
+  }
 `;
 
 export const SearchInput = styled(DebounceInput)`

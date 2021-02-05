@@ -1,22 +1,22 @@
-import React from 'react';
+import React from "react";
 
-import BookmarkButton from '../../components/BookmarkButton';
+import BookmarkButton from "../../components/BookmarkButton";
 import {
-  BFContainer,
+  BookmarkFilterContainer,
   Container,
   Heading,
   Filter,
   FilterArrow,
   FilterStyling,
-} from './styles';
+} from "./styles";
 
-import { ArticleLink } from '../../pages/styles';
+import { ArticleLink } from "../../pages/styles";
 
 function PageHeader({ title, bookmarkText, filter }) {
   return (
     <Container>
       <Heading>{title}</Heading>
-      <BFContainer>
+      <BookmarkFilterContainer>
         <ArticleLink to="/saved-articles">
           {bookmarkText && <BookmarkButton text={bookmarkText} />}
         </ArticleLink>
@@ -29,7 +29,7 @@ function PageHeader({ title, bookmarkText, filter }) {
             </Filter>
           </FilterStyling>
         )}
-      </BFContainer>
+      </BookmarkFilterContainer>
     </Container>
   );
 }
