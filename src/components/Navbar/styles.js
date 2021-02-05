@@ -13,7 +13,7 @@ export const Nav = styled.nav`
   min-width: 300px;
   width: 100%;
 
-  @media (max-width: 500px) {
+  @media (max-width: 1024px) {
     flex-wrap: nowrap;
     flex-direction: row;
     justify-content: space-between;
@@ -35,7 +35,7 @@ export const HamburgerButton = styled.button`
   & svg {
     fill: ${colors.white};
   }
-  @media (max-width: 500px) {
+  @media (max-width: 1024px) {
     display: inline-block;
   }
 `;
@@ -46,7 +46,7 @@ export const FlexContainer = styled.div`
   justify-content: space-between;
   align-items: flex-end;
 
-  @media (max-width: 500px) {
+  @media (max-width: 1024px) {
     flex-wrap: nowrap;
     align-items: center;
   }
@@ -57,7 +57,7 @@ export const NavMenu = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
 
-  @media (max-width: 500px) {
+  @media (max-width: 1024px) {
     display: none;
   }
 `;
@@ -67,7 +67,7 @@ export const NavMobileMenu = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
 
-  @media (max-width: 500px) {
+  @media (max-width: 1024px) {
     display: ${(props) => props.display || "none"};
     flex-direction: column;
     width: 100%;
@@ -91,7 +91,7 @@ export const NavLink = styled(Link)`
     padding: 1rem 3rem 0 3rem;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 1024px) {
     width: 100%;
     padding: 1.5rem;
 

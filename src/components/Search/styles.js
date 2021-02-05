@@ -22,7 +22,7 @@ export const Container = styled.div`
     background-color: ${colors.mediumBlue};
   `}
 
-  @media (max-width: 500px) {
+  @media (max-width: 1024px) {
     width: 100%;
     display: ${(props) => props.display || "none"};
     padding: 1.5em .5rem;
