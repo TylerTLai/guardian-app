@@ -1,14 +1,15 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { motion } from "framer-motion";
 
 import PageHeader from "../PageHeader";
 import makeNewsArticles from "./makeNewsArticles";
 import { fetchTopStories } from "../../store/actions/articles";
 
+import { routeTransitionVariants } from "../../animations/routeTransitions";
 import { Container } from "./styles";
 
 function TopStories({ fetchTopStories, section, topStories }) {
-  
   useEffect(() => {
     fetchTopStories(section);
   }, []);
@@ -23,7 +24,13 @@ function TopStories({ fetchTopStories, section, topStories }) {
         filter={true}
       />
 
-      <div>{selectedStories}</div>
+      <motion.div
+        variants={routeTransitionVariants}
+        animate="display"
+        initial="initial"
+      >
+        {selectedStories}
+      </motion.div>
     </Container>
   );
 }

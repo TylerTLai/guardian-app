@@ -8,9 +8,7 @@ const { fontSizes } = theme;
 export const Container = styled.div`
   padding: 0.4rem 10rem 7rem 10rem;
   width: 100%;
-  /* render 100vh or 100% depending on if content exists */
-  /* height: 100vh; */
-  /* height: 100%;  */
+  height: 100%;
 
   @media (max-width: 1230px) {
     padding: 0.4rem 5rem 7rem 5rem;

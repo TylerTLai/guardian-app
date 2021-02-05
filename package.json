@@ -10,6 +10,7 @@
     "better-react-spinkit": "^2.0.4",
     "dayjs": "^1.10.3",
     "dompurify": "^2.2.6",
+    "framer-motion": "^3.3.0",
     "normalize.css": "^8.0.1",
     "react": "^17.0.1",
     "react-debounce-input": "^3.2.3",

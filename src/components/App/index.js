@@ -1,19 +1,27 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
-import { PersistGate } from 'redux-persist/integration/react';
-import { Provider } from 'react-redux';
+import React from "react";
+import { AnimatePresence } from "framer-motion";
+import {
+  // BrowserRouter as Router,
+  Route,
+  Switch,
+  useLocation,
+} from "react-router-dom";
+import { Helmet } from "react-helmet";
+import { PersistGate } from "redux-persist/integration/react";
+import { Provider } from "react-redux";
 
-import { store, persistor } from '../../store/store';
-import Article from '../../pages/Article';
-import Category from '../../pages/Category';
-import Home from '../../pages/Home';
-import SearchResults from '../../pages/SearchResults';
-import SavedArticles from '../../pages/SavedArticles';
+import { store, persistor } from "../../store/store";
+import Article from "../../pages/Article";
+import Category from "../../pages/Category";
+import Home from "../../pages/Home";
+import SearchResults from "../../pages/SearchResults";
+import SavedArticles from "../../pages/SavedArticles";
 
-import GlobalStyle from '../../styles/globalStyles';
+import GlobalStyle from "../../styles/globalStyles";
 
 function App() {
+  const location = useLocation();
+
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
@@ -24,16 +32,20 @@ function App() {
             rel="stylesheet"
           />
         </Helmet>
-        <Router>
-          <GlobalStyle />
-          <Switch>
+
+        <GlobalStyle />
+        <AnimatePresence exitBeforeEnter>
+          <Switch location={location} key={location.pathnam}>
             <Route path="/saved-articles" component={SavedArticles} />
             <Route path="/results" component={SearchResults} />
             <Route path="/:section/:articleId" component={Article} />
             <Route path="/:sectionId" component={Category} />
             <Route exact path="/" component={Home} />
+            <Route path="*">
+              <div>Not found.</div>
+            </Route>
           </Switch>
-        </Router>
+        </AnimatePresence>
       </PersistGate>
     </Provider>
   );

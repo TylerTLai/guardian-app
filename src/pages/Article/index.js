@@ -1,13 +1,15 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import dayjs from 'dayjs';
-import DOMPurify from 'dompurify';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import dayjs from "dayjs";
+import DOMPurify from "dompurify";
+import { motion } from "framer-motion";
 
-import { addBookmark, removeBookmark } from '../../store/actions/bookmark';
-import { fetchArticle } from '../../store/actions/articles';
-import BookmarkButton from '../../components/BookmarkButton';
-import Layout from '../../components/Layout';
-import placeholder from '../../assets/images/placeholder.svg';
+import { addBookmark, removeBookmark } from "../../store/actions/bookmark";
+import { fetchArticle } from "../../store/actions/articles";
+import BookmarkButton from "../../components/BookmarkButton";
+import Layout from "../../components/Layout";
+import placeholder from "../../assets/images/placeholder.svg";
+import { routeTransitionVariants } from "../../animations/routeTransitions";
 
 import {
   ArticleContainer,
@@ -20,7 +22,7 @@ import {
   ImageContainer,
   PageHeader,
   Title,
-} from './styles';
+} from "./styles";
 
 function Article({
   addBookmark,
@@ -44,13 +46,13 @@ function Article({
   }, []);
 
   const sanitizeBodyHtml = DOMPurify.sanitize(bodyHtml, {
-    ALLOWED_TAGS: ['h1', 'p', 'span'],
-    ALLOWED_ATTR: ['style'],
+    ALLOWED_TAGS: ["h1", "p", "span"],
+    ALLOWED_ATTR: ["style"],
   });
 
   const sanitizeHeadlineHtml = DOMPurify.sanitize(headline, {
-    ALLOWED_TAGS: ['h1', 'p', 'span'],
-    ALLOWED_ATTR: ['style'],
+    ALLOWED_TAGS: ["h1", "p", "span"],
+    ALLOWED_ATTR: ["style"],
   });
 
   const handleBookmark = (article) => {
@@ -67,36 +69,43 @@ function Article({
 
   return (
     <Layout>
-      <Container>
-        <PageHeader>
-          <BookmarkButton
-            text={bookmarked ? 'Remove from bookmark' : 'Add to bookmark'}
-            handleBookmark={() => handleBookmark(article, bookmarked)}
-          />
-          <Date>{dayjs(date).format('ddd D MMM YYYY hh:mm')}</Date>
-          <Title>{title}</Title>
-          <Headline>
-            <div dangerouslySetInnerHTML={{ __html: sanitizeHeadlineHtml }} />
-          </Headline>
-          <Divider />
-        </PageHeader>
-        <ArticleContainer>
-          <div dangerouslySetInnerHTML={{ __html: sanitizeBodyHtml }} />
-        </ArticleContainer>
-        <ImageContainer>
-          {imageSrc ? (
-            <Image src={imageSrc} alt={imageAlt} />
-          ) : (
-            <Image
-              src={placeholder}
-              alt="The Peaks placeholder"
-              width="100%"
-              height="auto"
+      <motion.div
+        variants={routeTransitionVariants}
+        animate="in"
+        initial="out"
+        exit="out"
+      >
+        <Container>
+          <PageHeader>
+            <BookmarkButton
+              text={bookmarked ? "Remove from bookmark" : "Add to bookmark"}
+              handleBookmark={() => handleBookmark(article, bookmarked)}
             />
-          )}
-          <Caption>{imageCaption}</Caption>
-        </ImageContainer>
-      </Container>
+            <Date>{dayjs(date).format("ddd D MMM YYYY hh:mm")}</Date>
+            <Title>{title}</Title>
+            <Headline>
+              <div dangerouslySetInnerHTML={{ __html: sanitizeHeadlineHtml }} />
+            </Headline>
+            <Divider />
+          </PageHeader>
+          <ArticleContainer>
+            <div dangerouslySetInnerHTML={{ __html: sanitizeBodyHtml }} />
+          </ArticleContainer>
+          <ImageContainer>
+            {imageSrc ? (
+              <Image src={imageSrc} alt={imageAlt} />
+            ) : (
+              <Image
+                src={placeholder}
+                alt="The Peaks placeholder"
+                width="100%"
+                height="auto"
+              />
+            )}
+            <Caption>{imageCaption}</Caption>
+          </ImageContainer>
+        </Container>
+      </motion.div>
     </Layout>
   );
 }
@@ -115,18 +124,18 @@ const mapStateToProps = (state) => {
 
     const { alt, caption } = article.blocks.main
       ? article.blocks.main.elements[0].imageTypeData
-      : '';
+      : "";
 
     return {
       bookmarks: state.bookmarkReducer.bookmarks,
-      article: article ? article : '',
-      title: headline ? headline : '',
-      bodyHtml: body ? body : '',
-      imageSrc: thumbnail ? thumbnail : '',
-      headline: trailText ? trailText : '',
-      date: firstPublicationDate ? firstPublicationDate : '',
-      imageAlt: alt ? alt : '',
-      imageCaption: caption ? caption : '',
+      article: article ? article : "",
+      title: headline ? headline : "",
+      bodyHtml: body ? body : "",
+      imageSrc: thumbnail ? thumbnail : "",
+      headline: trailText ? trailText : "",
+      date: firstPublicationDate ? firstPublicationDate : "",
+      imageAlt: alt ? alt : "",
+      imageCaption: caption ? caption : "",
     };
   }
 };
