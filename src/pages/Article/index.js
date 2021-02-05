@@ -87,7 +87,7 @@ function Article({
           {imageSrc ? (
             <Image src={imageSrc} alt={imageAlt} />
           ) : (
-            <img
+            <Image
               src={placeholder}
               alt="The Peaks placeholder"
               width="100%"

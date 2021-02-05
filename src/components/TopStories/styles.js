@@ -5,6 +5,7 @@ export const Container = styled.div`
   grid-template-rows: auto 1fr;
   margin-bottom: 2rem;
   min-width: 300px;
+  width: 100%;
 `;
 
 export const Top = styled.div`
