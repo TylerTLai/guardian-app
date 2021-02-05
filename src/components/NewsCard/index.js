@@ -5,16 +5,15 @@ import placeholder from "../../assets/images/placeholder.svg";
 import { Container, Media, TextContainer, Title, Headline } from "./styles";
 
 function NewsCard({
+  backgroundColor,
+  borderBottom,
+  headline = null,
+  height,
+  imageSrc,
   title,
   titleFontSize,
   titlePadding,
   titlePosition,
-  headlinePadding,
-  backgroundColor,
-  height,
-  headline = null,
-  imageSrc,
-  borderBottom,
 }) {
   return (
     <Container borderBottom={borderBottom}>
@@ -25,7 +24,6 @@ function NewsCard({
       )}
       <TextContainer backgroundColor={backgroundColor} height={height}>
         <Title
-          // backgroundColor={backgroundColor}
           fontSize={titleFontSize}
           padding={titlePadding}
           position={titlePosition}

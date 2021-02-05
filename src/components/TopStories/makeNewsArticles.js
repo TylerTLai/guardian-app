@@ -1,19 +1,19 @@
-import NewsCard from "../NewsCard";
 import { v4 as uuidv4 } from "uuid";
 
+import NewsCard from "../NewsCard";
+
+import { ArticleLink } from "../../pages/styles";
 import {
+  Bottom,
   LgCard,
   MdCard,
   SmCard,
+  Stories,
+  TinyCard,
   Top,
   TopLeft,
   TopRight,
-  Bottom,
-  TinyCard,
-  Stories,
 } from "./styles";
-
-import { ArticleLink } from "../../pages/styles";
 
 import theme from "../../styles/theme";
 
@@ -23,7 +23,7 @@ export const makeNewsArticles = (topStories, numberOfArticles) => {
   const stories = [];
 
   //todo abstract out some of these
-  
+
   for (
     let i = numberOfArticles - 1;
     i < topStories.slice(0, numberOfArticles).length;

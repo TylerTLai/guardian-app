@@ -2,15 +2,16 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { FadingCircle } from "better-react-spinkit";
 import { motion } from "framer-motion";
+
 import { fetchArticles } from "../../store/actions/articles";
 import Layout from "../../components/Layout";
+import NewsCard from "../../components/NewsCard";
+import NewsSection from "../../components/NewsSection";
 import TopStories from "../../components/TopStories";
 
 import { ArticleLink, Container, Heading, SpinnerContainer } from "../styles";
-import NewsSection from "../../components/NewsSection";
-import NewsCard from "../../components/NewsCard";
-import { routeTransitionVariants } from "../../animations/routeTransitions";
 import theme from "../../styles/theme";
+import { routeTransitionVariants } from "../../animations/routeTransitions";
 
 const { colors } = theme;
 
@@ -38,10 +39,10 @@ function Home({ articles, fetchArticles, loading }) {
           </SpinnerContainer>
         ) : (
           <motion.div
-            variants={routeTransitionVariants}
             animate="in"
-            initial="out"
             exit="out"
+            initial="out"
+            variants={routeTransitionVariants}
           >
             <TopStories section="world" />
             <Heading>Sports</Heading>

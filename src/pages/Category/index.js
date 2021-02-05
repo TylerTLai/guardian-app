@@ -10,12 +10,12 @@ import NewsSection from "../../components/NewsSection";
 import PageHeader from "../../components/PageHeader";
 
 import { ArticleLink, Container, SpinnerContainer } from "../styles";
-import { routeTransitionVariants } from "../../animations/routeTransitions";
 import theme from "../../styles/theme";
+import { routeTransitionVariants } from "../../animations/routeTransitions";
 
 const { colors } = theme;
 
-function Category({ articles, fetchArticles, location, loading, section }) {
+function Category({ articles, fetchArticles, loading, location, section }) {
   const sectionId = location.pathname.slice(1);
 
   useEffect(() => {
@@ -40,15 +40,15 @@ function Category({ articles, fetchArticles, location, loading, section }) {
           </SpinnerContainer>
         ) : (
           <motion.div
-            variants={routeTransitionVariants}
             animate="in"
-            initial="out"
             exit="out"
+            initial="out"
+            variants={routeTransitionVariants}
           >
             <PageHeader
-              title={section === "Life and style" ? "Lifestyle" : section}
               bookmarkText="VIEW BOOKMARK"
               filter={true}
+              title={section === "Life and style" ? "Lifestyle" : section}
             />
             <NewsSection>{newsCards}</NewsSection>
           </motion.div>
@@ -61,8 +61,8 @@ function Category({ articles, fetchArticles, location, loading, section }) {
 const mapStateToProps = (state) => {
   return {
     articles: state.articleReducer.articles,
-    section: state.articleReducer.section,
     loading: state.articleReducer.loading,
+    section: state.articleReducer.section,
   };
 };
 

@@ -5,8 +5,8 @@ import DOMPurify from "dompurify";
 import { motion } from "framer-motion";
 
 import { addBookmark, removeBookmark } from "../../store/actions/bookmark";
-import { fetchArticle } from "../../store/actions/articles";
 import BookmarkButton from "../../components/BookmarkButton";
+import { fetchArticle } from "../../store/actions/articles";
 import Layout from "../../components/Layout";
 import placeholder from "../../assets/images/placeholder.svg";
 import { routeTransitionVariants } from "../../animations/routeTransitions";
@@ -70,10 +70,10 @@ function Article({
   return (
     <Layout>
       <motion.div
-        variants={routeTransitionVariants}
         animate="in"
-        initial="out"
         exit="out"
+        initial="out"
+        variants={routeTransitionVariants}
       >
         <Container>
           <PageHeader>
@@ -127,15 +127,15 @@ const mapStateToProps = (state) => {
       : "";
 
     return {
-      bookmarks: state.bookmarkReducer.bookmarks,
       article: article ? article : "",
-      title: headline ? headline : "",
       bodyHtml: body ? body : "",
-      imageSrc: thumbnail ? thumbnail : "",
-      headline: trailText ? trailText : "",
+      bookmarks: state.bookmarkReducer.bookmarks,
       date: firstPublicationDate ? firstPublicationDate : "",
+      headline: trailText ? trailText : "",
       imageAlt: alt ? alt : "",
       imageCaption: caption ? caption : "",
+      imageSrc: thumbnail ? thumbnail : "",
+      title: headline ? headline : "",
     };
   }
 };

@@ -1,21 +1,20 @@
 import React from "react";
 import { AnimatePresence } from "framer-motion";
+import { Helmet } from "react-helmet";
 import {
-  // BrowserRouter as Router,
   Route,
   Switch,
   useLocation,
 } from "react-router-dom";
-import { Helmet } from "react-helmet";
 import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
 
-import { store, persistor } from "../../store/store";
 import Article from "../../pages/Article";
 import Category from "../../pages/Category";
 import Home from "../../pages/Home";
-import SearchResults from "../../pages/SearchResults";
 import SavedArticles from "../../pages/SavedArticles";
+import SearchResults from "../../pages/SearchResults";
+import { store, persistor } from "../../store/store";
 
 import GlobalStyle from "../../styles/globalStyles";
 

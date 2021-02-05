@@ -35,7 +35,7 @@ export const Heading = styled.h1`
 
 export const SpinnerContainer = styled.div`
   display: grid;
+  height: 100vh;
   place-items: center;
   width: 100%;
-  height: 100vh;
 `;

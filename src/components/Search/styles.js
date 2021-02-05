@@ -1,20 +1,21 @@
-import styled from "styled-components";
-import theme from "../../styles/theme";
 import { DebounceInput } from "react-debounce-input";
+import styled from "styled-components";
+
+import theme from "../../styles/theme";
 
 const { fontSizes, colors } = theme;
 
 export const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  background-color: ${colors.royalBlue};
   align-items: center;
+  background-color: ${colors.royalBlue};
   border-bottom: 3px solid white;
-  width: 95px;
+  display: flex;
   height: 40px;
+  justify-content: center;
   padding: 0.3rem 0.3rem 0.4rem 0.3rem;
   transition: 0.2s;
-
+  width: 95px;
+  
   ${(props) =>
     props.active &&
     `
@@ -48,10 +49,10 @@ export const SearchInput = styled(DebounceInput)`
     `
     cursor: text;
     background-color: ${colors.transparentWhite};
-    outline: 0;
-    width: 230px;
     display: inline-block;
+    outline: 0;
     padding: .5rem .5rem .5rem .5rem;
+    width: 230px;
 
     ::placeholder {
       color: ${colors.lightblue};
@@ -61,9 +62,9 @@ export const SearchInput = styled(DebounceInput)`
 `;
 
 export const SearchButton = styled.button`
-  cursor: pointer;
   background-color: transparent;
   border: 0;
+  cursor: pointer;
   outline: 0;
 
   & svg {

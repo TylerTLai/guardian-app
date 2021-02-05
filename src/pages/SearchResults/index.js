@@ -9,12 +9,13 @@ import NewsSection from "../../components/NewsSection";
 import PageHeader from "../../components/PageHeader";
 
 import { ArticleLink, Container, SpinnerContainer } from "../styles";
-import { routeTransitionVariants } from "../../animations/routeTransitions";
 import theme from "../../styles/theme";
+import { routeTransitionVariants } from "../../animations/routeTransitions";
 
 const { colors } = theme;
 
 function SearchResults({ loading, location }) {
+
   const { results } = location.state;
 
   const newsCards = results.map((result) => {
@@ -35,15 +36,15 @@ function SearchResults({ loading, location }) {
           </SpinnerContainer>
         ) : (
           <motion.div
-            variants={routeTransitionVariants}
             animate="in"
-            initial="out"
             exit="out"
+            initial="out"
+            variants={routeTransitionVariants}
           >
             <PageHeader
-              title="Search Results"
               bookmarkText="VIEW BOOKMARK"
               filter={true}
+              title="Search Results"
             />
             <NewsSection>{newsCards}</NewsSection>
           </motion.div>

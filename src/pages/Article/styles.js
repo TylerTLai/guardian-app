@@ -7,7 +7,6 @@ const { fontSizes, colors } = theme;
 export const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-template-areas: 1fr 1fr;
   padding: 5rem 10rem 5rem 10rem;
   grid-column-gap: 30px;
   grid-template-areas:
@@ -51,8 +50,6 @@ export const PageHeader = styled.div`
 `;
 
 export const Image = styled.img`
-  /* width: 100%; */
-  /* height: auto; */
 
   @media (max-width: 768px) {
     width: 100%;
@@ -83,8 +80,8 @@ export const Title = styled.h1`
 
 export const Headline = styled.h2`
   font-size: ${fontSizes.lg};
-  line-height: 1.5;
   letter-spacing: 0.5px;
+  line-height: 1.5;
 
   @media (max-width: 500px) {
     font-size: ${fontSizes.md};

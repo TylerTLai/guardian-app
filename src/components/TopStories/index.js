@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { motion } from "framer-motion";
 
-import PageHeader from "../PageHeader";
 import makeNewsArticles from "./makeNewsArticles";
+import PageHeader from "../PageHeader";
 import { fetchTopStories } from "../../store/actions/articles";
 
 import { routeTransitionVariants } from "../../animations/routeTransitions";
@@ -19,15 +19,15 @@ function TopStories({ fetchTopStories, section, topStories }) {
   return (
     <Container>
       <PageHeader
-        title="Top stories"
         bookmarkText="VIEW BOOKMARK"
         filter={true}
+        title="Top stories"
       />
 
       <motion.div
-        variants={routeTransitionVariants}
         animate="display"
         initial="initial"
+        variants={routeTransitionVariants}
       >
         {selectedStories}
       </motion.div>

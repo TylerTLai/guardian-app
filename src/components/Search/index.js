@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
 import { BiSearchAlt2 } from "react-icons/bi";
+import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
 import { requestArticles } from "../../store/actions/search";
@@ -10,7 +10,8 @@ import theme from "../../styles/theme";
 
 const { colors } = theme;
 
-function Search({ display, searchResponse, requestArticles }) {
+function Search({ display, requestArticles, searchResponse }) {
+
   const [activeAnimation, setActiveAnimation] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -23,21 +24,22 @@ function Search({ display, searchResponse, requestArticles }) {
     setSearchQuery(query);
     requestArticles(query);
   };
+
   return (
     <Container active={activeAnimation} display={display}>
       <SearchButton onClick={handleActiveAnimation}>
         <BiSearchAlt2 size={23} color={`${colors.white}`} />
       </SearchButton>
       <SearchInput
-        inputRef={(input) => input && input.focus()}
-        onBlur={() => setActiveAnimation(false)}
-        minLength={3}
-        debounceTimeout={800}
-        onChange={handleInputChange}
-        placeholder="Search all news"
         active={activeAnimation ? 1 : 0}
         autoComplete="off"
+        debounceTimeout={800}
+        inputRef={(input) => input && input.focus()}
+        minLength={3}
         name="query"
+        onBlur={() => setActiveAnimation(false)}
+        onChange={handleInputChange}
+        placeholder="Search all news"
         value={searchQuery}
       />
 

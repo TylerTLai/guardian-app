@@ -20,30 +20,30 @@ export const TopLeft = styled.div`
 
 export const TopRight = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 30px 30px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   min-width: 300px;
 `;
 
 export const Bottom = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-column-gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 `;
 
 export const LgCard = styled.div`
-  width: 100%;
   height: 400px;
+  width: 100%;
 `;
 
 export const MdCard = styled.div`
-  width: 100%;
   height: 335px;
+  width: 100%;
 `;
 
 export const SmCard = styled.div`
-  width: 100%;
   height: 240px;
+  width: 100%;
 `;
 
 export const TinyCard = styled.div`
@@ -55,7 +55,6 @@ export const Stories = styled.div`
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-template-rows: 400px 335px;
   grid-template-rows: auto auto;
   grid-row-gap: 30px;
 `;

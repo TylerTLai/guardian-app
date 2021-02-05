@@ -1,9 +1,9 @@
 import { REQUEST_ARTICLES } from '../actions/search';
 
 const initialState = {
-  results: [],
   loading: true,
   message: '',
+  results: [],
 };
 
 function searchReducer(state = initialState, action) {
@@ -11,8 +11,8 @@ function searchReducer(state = initialState, action) {
     case REQUEST_ARTICLES:
       return {
         ...state,
-        results: action.payload,
         loading: false,
+        results: action.payload,
       };
 
     default:
