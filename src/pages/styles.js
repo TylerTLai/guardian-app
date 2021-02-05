@@ -17,7 +17,7 @@ export const Container = styled.div`
   }
 
   @media (max-width: 500px) {
-    padding: 0.4rem 1rem 7rem 1rem;
+    padding: 0.4rem 2rem 7rem 1rem;
   }
 
   @media (max-width: 320px) {
