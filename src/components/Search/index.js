@@ -10,7 +10,7 @@ import theme from "../../styles/theme";
 
 const { colors } = theme;
 
-function Search({ searchResponse, requestArticles }) {
+function Search({ display, searchResponse, requestArticles }) {
   const [activeAnimation, setActiveAnimation] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -24,7 +24,7 @@ function Search({ searchResponse, requestArticles }) {
     requestArticles(query);
   };
   return (
-    <Container active={activeAnimation}>
+    <Container active={activeAnimation} display={display}>
       <SearchButton onClick={handleActiveAnimation}>
         <BiSearchAlt2 size={23} color={`${colors.white}`} />
       </SearchButton>

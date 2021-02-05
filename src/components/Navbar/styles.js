@@ -12,10 +12,32 @@ export const Nav = styled.nav`
   flex-wrap: wrap;
   min-width: 300px;
   width: 100%;
+
+  @media (max-width: 500px) {
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `;
 
 export const NavLogo = styled(Link)`
   cursor: pointer;
+  display: inline-block;
+`;
+
+export const HamburgerButton = styled.button`
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  display: none;
+
+  & svg {
+    fill: ${colors.white};
+  }
+  @media (max-width: 500px) {
+    display: inline-block;
+  }
 `;
 
 export const FlexContainer = styled.div`
@@ -23,12 +45,33 @@ export const FlexContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-end;
+
+  @media (max-width: 500px) {
+    flex-wrap: nowrap;
+    align-items: center;
+  }
 `;
 
 export const NavMenu = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+
+  @media (max-width: 500px) {
+    display: none;
+  }
+`;
+
+export const NavMobileMenu = styled.div`
+  display: none;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  @media (max-width: 500px) {
+    display: ${(props) => props.display || "none"};
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 
 export const NavLink = styled(Link)`
@@ -46,5 +89,16 @@ export const NavLink = styled(Link)`
     border-bottom: 8px solid;
     border-color: ${({ color }) => color || `${colors.red}`};
     padding: 1rem 3rem 0 3rem;
+  }
+
+  @media (max-width: 500px) {
+    width: 100%;
+    padding: 1.5rem;
+
+    &:hover {
+      border-bottom: 3px solid;
+      border-color: ${({ color }) => color || `${colors.red}`};
+      padding: 1.5rem;
+    }
   }
 `;
