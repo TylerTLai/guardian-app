@@ -15,12 +15,19 @@ import { routeTransitionVariants } from "../../animations/routeTransitions";
 
 const { colors } = theme;
 
-function Category({ articles, fetchArticles, loading, location, section }) {
+function Category({
+  articles,
+  fetchArticles,
+  loading,
+  location,
+  section,
+  sortValue,
+}) {
   const sectionId = location.pathname.slice(1);
 
   useEffect(() => {
-    fetchArticles(sectionId);
-  }, [sectionId]);
+    fetchArticles(sectionId, sortValue);
+  }, [sortValue, sectionId]);
 
   const newsCards = articles.map((article) => {
     const imageUrl = article.fields.thumbnail;
@@ -47,7 +54,7 @@ function Category({ articles, fetchArticles, loading, location, section }) {
           >
             <PageHeader
               bookmarkText="VIEW BOOKMARK"
-              filter={true}
+              sort={true}
               title={section === "Life and style" ? "Lifestyle" : section}
             />
             <NewsSection>{newsCards}</NewsSection>
@@ -63,12 +70,14 @@ const mapStateToProps = (state) => {
     articles: state.articleReducer.articles,
     loading: state.articleReducer.loading,
     section: state.articleReducer.section,
+    sortValue: state.articleReducer.sortValue,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchArticles: (section) => dispatch(fetchArticles(section)),
+    fetchArticles: (section, sortValue) =>
+      dispatch(fetchArticles(section, sortValue)),
   };
 };
 

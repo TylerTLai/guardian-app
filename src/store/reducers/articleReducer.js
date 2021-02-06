@@ -13,7 +13,7 @@ const initialState = {
   loading: true,
   section: "",
   topStories: [],
-  sortValue: "",
+  sortValue: "newest",
 };
 
 function articles(state = initialState, action) {

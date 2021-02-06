@@ -20,7 +20,7 @@ function TopStories({ fetchTopStories, section, sortValue, topStories }) {
     <Container>
       <PageHeader
         bookmarkText="VIEW BOOKMARK"
-        filter={true}
+        sort={true}
         title="Top stories"
       />
 
@@ -36,7 +36,6 @@ function TopStories({ fetchTopStories, section, sortValue, topStories }) {
 }
 
 const mapStateToProps = (state) => {
-  console.log("top stories msp ", state.articleReducer.sortValue);
   return {
     topStories: state.articleReducer.topStories,
     sortValue: state.articleReducer.sortValue,
@@ -45,7 +44,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchTopStories: (section) => dispatch(fetchTopStories(section)),
+    fetchTopStories: (section, sortValue) =>
+      dispatch(fetchTopStories(section, sortValue)),
   };
 };
 

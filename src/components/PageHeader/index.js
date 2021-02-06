@@ -3,43 +3,42 @@ import { connect } from "react-redux";
 
 import BookmarkButton from "../../components/BookmarkButton";
 import {
-  BookmarkFilterContainer,
+  BookmarkSortContainer,
   Container,
   Heading,
-  Filter,
-  FilterArrow,
-  FilterStyling,
+  SortDropdown,
+  SortArrow,
+  SortStyling,
 } from "./styles";
 
 import { ArticleLink } from "../../pages/styles";
 import { sortArticles } from "../../store/actions/articles";
 
-function PageHeader({ title, bookmarkText, filter, sortArticles }) {
-  const handleFilterChange = (e) => {
+function PageHeader({ title, bookmarkText, sort, sortArticles }) {
+  const handleSortSelect = (e) => {
     sortArticles(e.target.value);
   };
 
   return (
     <Container>
       <Heading>{title}</Heading>
-      <BookmarkFilterContainer>
+      <BookmarkSortContainer>
         <ArticleLink to="/saved-articles">
           {bookmarkText && <BookmarkButton text={bookmarkText} />}
         </ArticleLink>
-        {filter && (
-          <FilterStyling>
-            <FilterArrow />
-            <Filter
+        {sort && (
+          <SortStyling>
+            <SortArrow />
+            <SortDropdown
               defaultValue="newest"
-              // value={sortValue}
-              onChange={(e) => handleFilterChange(e)}
+              onChange={(e) => handleSortSelect(e)}
             >
               <option value="newest">Newest first</option>
               <option value="oldest">Oldest first</option>
-            </Filter>
-          </FilterStyling>
+            </SortDropdown>
+          </SortStyling>
         )}
-      </BookmarkFilterContainer>
+      </BookmarkSortContainer>
     </Container>
   );
 }

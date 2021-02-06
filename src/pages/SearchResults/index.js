@@ -15,7 +15,6 @@ import { routeTransitionVariants } from "../../animations/routeTransitions";
 const { colors } = theme;
 
 function SearchResults({ loading, location }) {
-
   const { results } = location.state;
 
   const newsCards = results.map((result) => {
@@ -43,7 +42,7 @@ function SearchResults({ loading, location }) {
           >
             <PageHeader
               bookmarkText="VIEW BOOKMARK"
-              filter={true}
+              sort={false}
               title="Search Results"
             />
             <NewsSection>{newsCards}</NewsSection>

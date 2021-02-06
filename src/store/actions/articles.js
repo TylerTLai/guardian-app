@@ -20,8 +20,8 @@ export const fetchArticle = (articleId) => {
   };
 };
 
-export const fetchArticles = (section) => {
-  const URL = `https://content.guardianapis.com/${section}?show-elements=image&show-fields=all&show-blocks=all&api-key=`;
+export const fetchArticles = (section, sortValue = "newest") => {
+  const URL = `https://content.guardianapis.com/${section}?show-elements=image&page=15&show-fields=all&show-blocks=all&order-by=${sortValue}&api-key=`;
 
   return async (dispatch) => {
     const response = await axios.get(URL + API_KEY);
@@ -34,9 +34,7 @@ export const fetchArticles = (section) => {
 };
 
 export const fetchTopStories = (section, sortValue) => {
-  const sortSelect = sortValue === undefined ? "newest" : sortValue;
-  console.log("from fetchtopstories action ", sortSelect);
-  const URL = `https://content.guardianapis.com/${section}?show-elements=image&show-fields=all&show-blocks=all&order-by=${sortSelect}&api-key=`;
+  const URL = `https://content.guardianapis.com/${section}?show-elements=image&page=15&show-fields=all&show-blocks=all&order-by=${sortValue}&api-key=`;
 
   return async (dispatch) => {
     const response = await axios.get(URL + API_KEY);
