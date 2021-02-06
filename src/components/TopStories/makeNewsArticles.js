@@ -21,10 +21,6 @@ const { fontSizes, colors } = theme;
 
 export const makeNewsArticles = (topStories, numberOfArticles) => {
   const stories = [];
-  const cleanHeadline = topStories[0].fields.trailText.replace(
-    /<\/?[^>]+(>|$)/g,
-    ""
-  );
 
   //todo abstract out some of these
 
@@ -33,6 +29,13 @@ export const makeNewsArticles = (topStories, numberOfArticles) => {
     i < topStories.slice(0, numberOfArticles).length;
     i++
   ) {
+
+    //todo implement better solution for BigCard headline
+    const cleanHeadline = topStories[0].fields.trailText.replace(
+      /<\/?[^>]+(>|$)/g,
+      ""
+    );
+
     stories.push(
       <Stories key={uuidv4()}>
         <Top>
