@@ -67,6 +67,7 @@ function Article({
     ? bookmarks.some((bookmark) => bookmark.id === article.id)
     : false;
 
+
   return (
     <Layout>
       <motion.div

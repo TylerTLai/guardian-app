@@ -21,6 +21,10 @@ const { fontSizes, colors } = theme;
 
 export const makeNewsArticles = (topStories, numberOfArticles) => {
   const stories = [];
+  const cleanHeadline = topStories[0].fields.trailText.replace(
+    /<\/?[^>]+(>|$)/g,
+    ""
+  );
 
   //todo abstract out some of these
 
@@ -40,7 +44,7 @@ export const makeNewsArticles = (topStories, numberOfArticles) => {
                   title={topStories[0].webTitle}
                   titlePadding={"0.3rem 1rem 0 1rem"}
                   imageSrc={topStories[0].fields.thumbnail}
-                  headline={topStories[0].fields.trailText}
+                  headline={cleanHeadline}
                 />
               </ArticleLink>
             </LgCard>
