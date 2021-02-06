@@ -41,7 +41,7 @@ function SavedArticles({ bookmarks, getBookmarks }) {
         variants={routeTransitionVariants}
       >
         <Container>
-          <PageHeader title="All bookmarks" filter={true} />
+          <PageHeader title="All bookmarks" sort={false} />
           <NewsSection>{newsCards}</NewsSection>
         </Container>
       </motion.div>

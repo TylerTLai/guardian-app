@@ -30,7 +30,7 @@ export const Heading = styled.h1`
   }
 `;
 
-export const BookmarkFilterContainer = styled.div`
+export const BookmarkSortContainer = styled.div`
   align-items: flex-end;
   display: grid;
   grid-auto-flow: column;
@@ -59,12 +59,12 @@ export const BookmarkFilterContainer = styled.div`
   }
 `;
 
-export const FilterStyling = styled.div`
+export const SortStyling = styled.div`
   display: inline-block;
   position: relative;
 `;
 
-export const FilterArrow = styled.span`
+export const SortArrow = styled.span`
   background: ${colors.white};
   bottom: 5px;
   pointer-events: none;
@@ -86,7 +86,7 @@ export const FilterArrow = styled.span`
   }
 `;
 
-export const Filter = styled.select`
+export const SortDropdown = styled.select`
   border-bottom: 1px solid ${colors.gray};
   border-left: 0;
   border-right: 0;

@@ -9,10 +9,10 @@ import { fetchTopStories } from "../../store/actions/articles";
 import { routeTransitionVariants } from "../../animations/routeTransitions";
 import { Container } from "./styles";
 
-function TopStories({ fetchTopStories, section, topStories }) {
+function TopStories({ fetchTopStories, section, sortValue, topStories }) {
   useEffect(() => {
-    fetchTopStories(section);
-  }, []);
+    fetchTopStories(section, sortValue);
+  }, [sortValue]);
 
   const selectedStories = makeNewsArticles(topStories, 8);
 
@@ -20,7 +20,7 @@ function TopStories({ fetchTopStories, section, topStories }) {
     <Container>
       <PageHeader
         bookmarkText="VIEW BOOKMARK"
-        filter={true}
+        sort={true}
         title="Top stories"
       />
 
@@ -38,12 +38,14 @@ function TopStories({ fetchTopStories, section, topStories }) {
 const mapStateToProps = (state) => {
   return {
     topStories: state.articleReducer.topStories,
+    sortValue: state.articleReducer.sortValue,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchTopStories: (section) => dispatch(fetchTopStories(section)),
+    fetchTopStories: (section, sortValue) =>
+      dispatch(fetchTopStories(section, sortValue)),
   };
 };
 

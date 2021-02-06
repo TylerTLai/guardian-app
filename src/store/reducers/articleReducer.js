@@ -2,6 +2,7 @@ import {
   FETCH_ARTICLE,
   FETCH_ARTICLES,
   FETCH_TOP_STORIES,
+  SORT_ARTICLES,
 } from "../actions/articles";
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
   loading: true,
   section: "",
   topStories: [],
+  sortValue: "newest",
 };
 
 function articles(state = initialState, action) {
@@ -43,6 +45,9 @@ function articles(state = initialState, action) {
         section: action.payload.response.section.webTitle,
         topStories: action.payload.response.results,
       };
+
+    case SORT_ARTICLES:
+      return { ...state, sortValue: action.payload };
 
     default:
       return state;
