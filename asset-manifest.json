@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.js": "/TylerTLai/guardian-app/static/js/main.7dbf424a.chunk.js",
-    "main.js.map": "/TylerTLai/guardian-app/static/js/main.7dbf424a.chunk.js.map",
-    "runtime-main.js": "/TylerTLai/guardian-app/static/js/runtime-main.abf02f92.js",
-    "runtime-main.js.map": "/TylerTLai/guardian-app/static/js/runtime-main.abf02f92.js.map",
-    "static/css/2.679831fc.chunk.css": "/TylerTLai/guardian-app/static/css/2.679831fc.chunk.css",
-    "static/js/2.c880855f.chunk.js": "/TylerTLai/guardian-app/static/js/2.c880855f.chunk.js",
-    "static/js/2.c880855f.chunk.js.map": "/TylerTLai/guardian-app/static/js/2.c880855f.chunk.js.map",
-    "index.html": "/TylerTLai/guardian-app/index.html",
-    "static/css/2.679831fc.chunk.css.map": "/TylerTLai/guardian-app/static/css/2.679831fc.chunk.css.map",
-    "static/js/2.c880855f.chunk.js.LICENSE.txt": "/TylerTLai/guardian-app/static/js/2.c880855f.chunk.js.LICENSE.txt",
-    "static/media/placeholder.1943c6e5.svg": "/TylerTLai/guardian-app/static/media/placeholder.1943c6e5.svg",
-    "static/media/the-peaks-logo.e0798f19.svg": "/TylerTLai/guardian-app/static/media/the-peaks-logo.e0798f19.svg"
+    "main.js": "./static/js/main.9b5b83b9.chunk.js",
+    "main.js.map": "./static/js/main.9b5b83b9.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.d6e5f0c0.js",
+    "runtime-main.js.map": "./static/js/runtime-main.d6e5f0c0.js.map",
+    "static/css/2.679831fc.chunk.css": "./static/css/2.679831fc.chunk.css",
+    "static/js/2.271af0a2.chunk.js": "./static/js/2.271af0a2.chunk.js",
+    "static/js/2.271af0a2.chunk.js.map": "./static/js/2.271af0a2.chunk.js.map",
+    "index.html": "./index.html",
+    "static/css/2.679831fc.chunk.css.map": "./static/css/2.679831fc.chunk.css.map",
+    "static/js/2.271af0a2.chunk.js.LICENSE.txt": "./static/js/2.271af0a2.chunk.js.LICENSE.txt",
+    "static/media/placeholder.1943c6e5.svg": "./static/media/placeholder.1943c6e5.svg",
+    "static/media/the-peaks-logo.e0798f19.svg": "./static/media/the-peaks-logo.e0798f19.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.abf02f92.js",
+    "static/js/runtime-main.d6e5f0c0.js",
     "static/css/2.679831fc.chunk.css",
-    "static/js/2.c880855f.chunk.js",
-    "static/js/main.7dbf424a.chunk.js"
+    "static/js/2.271af0a2.chunk.js",
+    "static/js/main.9b5b83b9.chunk.js"
   ]
 }
