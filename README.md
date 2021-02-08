@@ -9,9 +9,32 @@ This app was made using [Guardian API](https://open-platform.theguardian.com/), 
 ![demo3](https://user-images.githubusercontent.com/59126853/104824253-bb029c00-5815-11eb-925f-87c3fab65004.png)
 
 
+## Technology used
+
+- React
+- Styled Components 
+- The Guardian API
+- React Hooks
+- React Router
+- LocalStorage
+- React Redux
+
+
 ## Features
 
-- [ ] Ability to bookmark articles
-- [ ] Mobile responsive
-- [ ] Live Searching
-- [ ] Sort from  newest to oldest
+- Ability to bookmark articles
+- Mobile responsive
+- Live Searching
+- Sort from  newest to oldest
+
+## Using Guardian App
+
+- Clone this repo to your local machine `git clone (https://github.com/TylerTLai/guardian-app.git)`
+- run `npm install` to install all dependencies
+- run `npm start` to start server
+- head to `http://localhost:3000` to see the app.
+
+
+## Contact
+
+You can reach me at <lai.t.tyler@gmail.com>.
