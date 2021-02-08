@@ -9,33 +9,9 @@ This app was made using [Guardian API](https://open-platform.theguardian.com/), 
 ![demo3](https://user-images.githubusercontent.com/59126853/104824253-bb029c00-5815-11eb-925f-87c3fab65004.png)
 
 
-## Todo
+## Features
 
-- [ ] Add filter feature
-- [ ] Add loading spinner
-- [ ] Make mobile responsive
-- [ ] Refactor
-- [ ] Add comments
-- [ ] Deploy
-
-## Done
-
-- [x] Add search feature
-- [x] Add bookmarking feature
-- [x] Add readme
-- [x] Design Saved Articles Page
-- [x] Design Select Component
-- [x] Design Top Stories section
-- [x] Design Search Results Page
-- [x] Animate Search Component
-- [x] Design Search Component
-- [x] Design News Card
-- [x] Design News Section
-- [x] Fetch article and header text from API
-- [x] Fetch images from API
-- [x] Implement React Router
-- [x] Implement Redux
-- [x] Design Articles Page
-- [x] Design Category Page
-- [x] Design Home Page
-- [x] Define theme and styling
+- [ ] Ability to bookmark articles
+- [ ] Mobile responsive
+- [ ] Live Searching
+- [ ] Sort from  newest to oldest
