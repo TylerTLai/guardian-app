@@ -32,6 +32,7 @@ function Home({ articles, fetchArticles, loading }) {
 
   return (
     <Layout>
+      <p>hello</p>
       <Container>
         {loading ? (
           <SpinnerContainer>
